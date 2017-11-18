@@ -6,9 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+Artist.create!(
+  name: "Jacques Brel"
+)
+
 10.times {
   Song.create!(
     name: "Vesoul",
+    artist_id: 1,
     lyrics: "T'as voulu voir Vierzon
       Et on a vu Vierzon
       T'as voulu voir Vesoul
