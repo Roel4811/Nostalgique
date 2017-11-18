@@ -14,8 +14,8 @@ class AddSongForm extends React.Component {
   render() {
     return (
       <form ref={(input) => this.songForm = input} onSubmit={(e) => this.createSong(e)}>
-        <input ref={(input) => {this.name = input}} type="text" placeholder="Song Name" />
-        <input ref={(input) => {this.lyrics = input}} type="text" placeholder="Song Lyrics" />
+        <input name="name" ref={(input) => {this.name = input}} type="text" placeholder="Song Name" />
+        <input name="lyrics" ref={(input) => {this.lyrics = input}} type="text" placeholder="Song Lyrics" />
         <button type="submit">+ Add Song</button>
       </form>
     )
