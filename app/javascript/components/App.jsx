@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import AllSongs from './AllSongs';
 import AddSongForm from './AddSongForm';
+import $ from 'jquery';
 
 class App extends React.Component {
   constructor() {
@@ -25,14 +26,32 @@ class App extends React.Component {
   }
 
   addSong(song) {
-    console.log('song');
-    //copy state
-    const songs = {...this.state.songs}
-    // ad new song
-    const timestamp = Date.now();
-    songs[`song-${timestamp}`] = song
-    // set state with copy
-    this.setState({ songs: songs })
+    console.log({song})
+    $.ajax({
+      url: '/songs.json',
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: { song: {
+        name: song.name,
+        artist_id: 1,
+        lyrics: song.lyrics
+      } },
+      success: (response) => {
+        console.log("success");
+        //copy state
+        const songs = {...this.state.songs}
+        // add new song
+        const timestamp = Date.now();
+        songs[`song-${timestamp}`] = response
+        // set state with copy
+        this.setState({ songs: songs })
+      },
+      error: function(response) {
+        console.log("fail")
+        // this.setState({ errors: response.errors })
+      }
+    });
+
   }
 
   render() {
