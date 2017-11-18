@@ -4,10 +4,10 @@ class Api::V1::SongsController < Api::V1::BaseController
     respond_with Song.all
   end
 
-  def create
-    respond_with :api, :v1, Song.create(item_params)
-  end
-
+  # def create
+  #   respond_with :api, :v1, Song.create(item_params)
+  # end
+  #
   def destroy
     respond_with Song.destroy(params[:id])
   end
@@ -20,8 +20,8 @@ class Api::V1::SongsController < Api::V1::BaseController
 
   private
 
-    def song_params
-      params.require(:song).permit(:id, :name, :lyrics)
-    end
+    # def song_params
+    #   params.require(:song).permit(:id, :name, :lyrics)
+    # end
 
 end
