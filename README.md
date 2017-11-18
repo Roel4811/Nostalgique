@@ -1,24 +1,9 @@
-# README
+MVP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+French songs seeded with name, artist, and lyrics
+User can add english lyrics for an incomplete song
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Next steps
+1. User can add a complete new song from scratch  
+2. Roel gets notification when new song is submitted
+3. Styling 
