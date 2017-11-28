@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import AllSongs from './AllSongs';
+import AllArtists from './AllArtists';
 import AddSongForm from './AddSongForm';
 import $ from 'jquery';
 
@@ -18,10 +19,14 @@ class App extends React.Component {
 
   componentWillMount() {
     // Add songs to state
-    const node = document.getElementById('songs_data');
-    const songs = JSON.parse(node.getAttribute('data'));
+    const songs_node = document.getElementById('songs_data');
+    const songs = JSON.parse(songs_node.getAttribute('data'));
+    const artists_node = document.getElementById('artists_data');
+    const artists = JSON.parse(artists_node.getAttribute('data'));
+
     this.setState({
-      songs: songs
+      songs: songs,
+      artists: artists
     });
   }
 
@@ -37,7 +42,6 @@ class App extends React.Component {
         lyrics: song.lyrics
       } },
       success: (response) => {
-        console.log("success");
         //copy state
         const songs = {...this.state.songs}
         // add new song
@@ -47,7 +51,7 @@ class App extends React.Component {
         this.setState({ songs: songs })
       },
       error: function(response) {
-        console.log("fail")
+        console.log("fail");
         // this.setState({ errors: response.errors })
       }
     });
@@ -58,6 +62,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <AllArtists artists={this.state.artists} />
         <AllSongs songs={this.state.songs} />
         <AddSongForm addSong={this.addSong} />
       </div>
