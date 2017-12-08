@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171118164643) do
+ActiveRecord::Schema.define(version: 20171208173708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,27 @@ ActiveRecord::Schema.define(version: 20171118164643) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "gender"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.date "date_of_birth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shopping_baskets", force: :cascade do |t|
+    t.string "id_token"
+    t.integer "member_id"
+    t.datetime "completed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "submitted_by_customer_at"
+    t.index ["id_token"], name: "index_shopping_baskets_on_id_token"
+    t.index ["member_id"], name: "index_shopping_baskets_on_member_id"
   end
 
   create_table "songs", force: :cascade do |t|
