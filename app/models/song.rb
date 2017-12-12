@@ -3,4 +3,6 @@ class Song < ApplicationRecord
   validates :lyrics, presence: true
 
   belongs_to :artist
+
+  mount_uploader :image, ImageUploader
 end

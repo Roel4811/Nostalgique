@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   addSong(song) {
-    console.log({song})
     $.ajax({
       url: '/songs.json',
       type: 'POST',
@@ -39,7 +38,8 @@ class App extends React.Component {
       data: { song: {
         name: song.name,
         artist_id: 1,
-        lyrics: song.lyrics
+        lyrics: song.lyrics,
+        image: song.image
       } },
       success: (response) => {
         //copy state
