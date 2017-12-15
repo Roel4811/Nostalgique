@@ -63,7 +63,7 @@ class App extends React.Component {
       <div>
         <Header />
         <AllArtists artists={this.state.artists} />
-        <AllSongs songs={this.state.songs} />
+        <AllSongs songs={this.state.songs} artists={this.state.artists}/>
         <AddSongForm addSong={this.addSong} />
       </div>
     )
