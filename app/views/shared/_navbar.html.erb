@@ -1,0 +1,24 @@
+<div class="navbar navbar-default">
+  <div class="container navbar-border">
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "Songs", songs_path %></li>
+      <li><%= link_to "Artists", artists_path %></li>
+      <li><%= link_to "Add Song", new_song_path %></li>
+      <li><%= link_to "Doneer", new_order_path, class: "pull-right" %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</div>
