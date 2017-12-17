@@ -1,15 +1,1 @@
-<%= content_tag :div,
-  id: "songs_data",
-  data: @songs.to_json do %>
-<% end %>
-<%= content_tag :div,
-  id: "artists_data",
-  data: @artists.to_json do %>
-<% end %>
 
-<div>
-  <%= link_to "Doneer", new_order_path, class: "pull-right" %>
-</div>
-<div id="main">
-</div>
-<%= javascript_pack_tag 'index' %>
