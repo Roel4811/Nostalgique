@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'pages#index'
+  root to: 'songs#index'
   namespace :api do
     namespace :v1 do
       resources :songs, only: [:index, :create, :destroy, :update]
@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/thankyou', to: 'orders#confirmation', as: 'orders_confirmation'
   get '/pay', to: 'orders#pay', as: 'pay_order'
   resources :songs
+  resources :artists
 end
