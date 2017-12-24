@@ -1,13 +1,15 @@
 <div class="container">
   <% @songs.each do |song| %>
-    <div class="song-card">
-      <div class="song-text">
-        <h3><%= song.name %> - <%= song.artist.name %></h3>
-        <p><%= truncate song.lyrics, length: 350 %></p>
+    <%= link_to(song) do %>
+      <div class="song-card">
+        <div class="song-text">
+          <h3><%= song.name %> - <%= song.artist.name %></h3>
+          <p><%= truncate song.lyrics, length: 350 %></p>
+        </div>
+        <div class="song-image">
+          <%= image_tag(song.image_url(:thumb).to_s) %>
+        </div>
       </div>
-      <div class="song-image">
-        <%= image_tag(song.image_url(:thumb).to_s) %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
