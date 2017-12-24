@@ -29,16 +29,34 @@ class SongsController < ApplicationController
     @song.artist = @artist
 
     if @song.save!
-      redirect_to songs_path
+      redirect_to translate_song_path(@song)
     else
       render :new
+    end
+  end
+
+  def show
+    @song = Song.find(params[:id])
+  end
+
+  def translate
+    @song = Song.find(params[:id])
+  end
+
+  def update
+    @song = Song.find(params[:id])
+    if @song.update!(song_params)
+      redirect_to root_path
+    else
+      render :translate
+      flash[:error] = "not updated"
     end
   end
 
   private
 
     def song_params
-      params.require(:song).permit(:lyrics, :name, :image)
+      params.require(:song).permit(:lyrics, :name, :image, :lyrics_en)
     end
 
     def artist_params
