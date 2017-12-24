@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171217173137) do
+ActiveRecord::Schema.define(version: 20171219192945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20171217173137) do
     t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "mollie_customer_id"
+    t.string "password_digest"
   end
 
   create_table "shopping_baskets", force: :cascade do |t|
@@ -38,6 +40,28 @@ ActiveRecord::Schema.define(version: 20171217173137) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "submitted_by_customer_at"
+    t.string "mollie_customer_id"
+    t.string "mollie_payment_id"
+    t.string "mollie_payment_method"
+    t.string "mollie_payment_status"
+    t.string "mollie_payment_amount"
+    t.string "mollie_payment_description"
+    t.datetime "mollie_payment_created_at"
+    t.datetime "mollie_payment_paid_at"
+    t.datetime "mollie_payment_cancelled_at"
+    t.datetime "mollie_payment_expired_at"
+    t.string "mollie_payment_profile_id"
+    t.string "mollie_payment_redirect_url"
+    t.string "mollie_payment_webhook_url"
+    t.string "mollie_consumer_name"
+    t.string "mollie_consumer_account"
+    t.string "mollie_consumer_bic"
+    t.string "mollie_card_holder"
+    t.string "mollie_card_number"
+    t.string "mollie_card_security"
+    t.datetime "mollie_called_at"
+    t.datetime "payment_succeeded_at"
+    t.string "mollie_payment_url"
     t.index ["id_token"], name: "index_shopping_baskets_on_id_token"
     t.index ["member_id"], name: "index_shopping_baskets_on_member_id"
   end
