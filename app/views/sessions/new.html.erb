@@ -1,18 +1,20 @@
-<%= form_tag '/login' do %>
+<div class="container">
+  <%= form_tag '/login' do %>
 
-  <br>
-  <div class="form-group">
-    <strong>Email: </strong>
-    <%= text_field_tag :email %>
     <br>
-  </div>
+    <div class="form-group">
+      <strong>Email: </strong>
+      <%= text_field_tag :email %>
+      <br>
+    </div>
 
-  <div class="form-group">
-    <strong>Password: </strong>
-    <%= password_field_tag :password %>
-    <br>
-  </div>
+    <div class="form-group">
+      <strong>Password: </strong>
+      <%= password_field_tag :password %>
+      <br>
+    </div>
 
-  <%= submit_tag "Submit" %>
+    <%= submit_tag "Submit" %>
 
-<% end %>
+  <% end %>
+</div>

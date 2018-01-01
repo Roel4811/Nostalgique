@@ -1,6 +1,7 @@
 body.songs.index {
   .song-card {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 50px;
     padding-bottom: 50px;
     border-bottom: 1px solid lightgrey;
