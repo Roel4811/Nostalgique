@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  before_action :authorize, only: [:new]
 
   def index
     @songs = Song.all
@@ -27,6 +28,7 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @artist = Artist.find_or_create_by(name: artist_params[:artist])
     @song.artist = @artist
+    @song.member = current_member
 
     if @song.save!
       redirect_to translate_song_path(@song)
