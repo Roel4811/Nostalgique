@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_member
 
   def authorize
-    redirect_to '/login' unless current_member
+    session[:return_to] = request.fullpath
+    redirect_to new_session_path unless current_member
   end
 end
