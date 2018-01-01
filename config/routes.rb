@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   resources :songs
   resources :artists
 
-  get '/login', to: 'sessions#new'
+  get '/login', to: 'sessions#new', as: 'new_session'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: 'logout_session'
   get '/signup', to: 'members#new'
   post '/members', to: 'members#create'
 
