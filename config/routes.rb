@@ -10,7 +10,14 @@ Rails.application.routes.draw do
   get '/thankyou', to: 'orders#confirmation', as: 'orders_confirmation'
   get '/pay', to: 'orders#pay', as: 'pay_order'
   get '/donate/register', to: 'orders#new_member'
-  resources :songs
+  get 'songs', to: 'songs#index', as: 'songs'
+  resource :song do
+    get :step1
+    get :step2
+    get :step3
+    get :step4
+    post :validate_step
+  end
   resources :artists
 
   get '/login', to: 'sessions#new', as: 'new_session'
@@ -20,4 +27,5 @@ Rails.application.routes.draw do
   post '/members', to: 'members#create'
 
   get '/translate/:id', to: 'songs#translate', as: 'translate_song'
+
 end
