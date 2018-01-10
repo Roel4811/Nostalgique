@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
         redirect_to new_order_path
       end
 
-      redirect_to payment.getPaymentUrl
+      redirect_to payment.links["payment_url"]
     end
 
     def uncompleted_shopping_basket

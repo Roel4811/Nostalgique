@@ -13,11 +13,10 @@ class MollieCreatePaymentService
 
     payment = mollie.payments.create(amount: shopping_basket.payment_amount,
                                     description: shopping_basket.payment_description,
-                                    redirect_url: confirmation_url,
-                                    webhook_url: webhook_url)
+                                    redirect_url: confirmation_url)
 
     shopping_basket.update(mollie_payment_id: payment.id,
-                          mollie_payment_url: payment.getPaymentUrl)
+                          mollie_payment_url: payment.links["payment_url"])
 
     payment
   end
