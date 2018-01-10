@@ -1,9 +1,65 @@
 body.songs.index {
-  .song-card {
+  .flex-container {
     display: flex;
+    height: 100vh;
+    border: 10px solid goldenrod;
+    flex-wrap: wrap;
+    .song-flex {
+      width: 33.33333%;
+      &:focus,
+      &:hover {
+        color: #3a1c6a;
+        text-decoration: underline;
+      }
+    }
+  }
+  .song-card {
+    background: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 50px;
-    padding-bottom: 50px;
-    border-bottom: 1px solid lightgrey;
+    padding: 50px;
+    .song-image {
+    }
+  }
+}
+
+body.songs {
+  .main-content {
+    height: 100vh;
+    h3 {
+      font-size: 4em;
+    }
+  }
+  .add-song-card {
+    border-radius: 10px;
+    // width: 350px;
+    // height: 50vh;
+    margin: 100px auto;
+    background: white;
+    padding: 50px;
+    form {
+      height: 100%;
+    }
+    label {
+      font-size: 1.7em;
+      display: block;
+    }
+    .input {
+      margin: 20px 0;
+    }
+    input.string {
+      font-size: 1.7em;
+      width: 70%;
+      height: 25px;
+      border: none;
+      border-bottom: 1px solid grey;
+    }
+    .form-action {
+      .button-standard {
+        margin-left: 0;
+      }
+    }
   }
 }
