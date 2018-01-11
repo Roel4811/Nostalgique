@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/thankyou', to: 'orders#confirmation', as: 'orders_confirmation'
   get '/pay', to: 'orders#pay', as: 'pay_order'
   get '/donate/register', to: 'orders#new_member'
-  get 'songs', to: 'songs#index', as: 'songs'
+  # get 'songs', to: 'songs#index', as: 'songs'
+  resources :songs
   resource :song do
     get :step1
     get :step2
