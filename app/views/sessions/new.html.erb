@@ -2,24 +2,14 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="log-in-card">
-        
-        <%= form_tag '/login' do %>
-
-          <br>
-          <div class="form-group">
-            <strong>Email: </strong>
-            <%= text_field_tag :email %>
-            <br>
+        <h3>Log In</h3>
+        <%= simple_form_for :member, url: '/login' do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :email, label: 'Email' %>
+          <%= f.input :password, label: 'Password' %>
+          <div class="form-action">
+            <%= f.submit 'Log in', class: "button-standard" %>
           </div>
-
-          <div class="form-group">
-            <strong>Password: </strong>
-            <%= password_field_tag :password %>
-            <br>
-          </div>
-
-          <%= submit_tag "Submit" %>
-
         <% end %>
       </div>
     </div>
