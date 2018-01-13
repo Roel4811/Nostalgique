@@ -1,31 +1,47 @@
-<% if !@no_nav %>
-  <div class="navbar navbar-default">
-    <div class="container navbar-border">
-      <form class="navbar-form navbar-left" action="/action_page.php">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search" name="search">
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Songs", songs_path %></li>
-        <li><%= link_to "Artists", artists_path %></li>
-        <li><%= link_to "Add Song", step1_song_path %></li>
-        <li><%= link_to "Doneer", new_order_path, class: "pull-right" %></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_member %>
-          Signed in as <%= current_member.first_name %> | <%= link_to "Logout", logout_session_path %>
-        <% else %>
-          <%= link_to 'Login', new_session_path %> | <%= link_to 'Signup', '/signup' %>
-        <% end %>
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-      </ul>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <% if !@no_nav %>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <% end %>
+      <%= link_to(root_path) do %>
+        <%= "logo" %>
+      <% end %>
     </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <% if !@no_nav_links %>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to "Songs", songs_path %>
+          </li>
+          <li>
+            <%= link_to "Artists", artists_path %>
+          </li>
+          <li>
+            <%= link_to "Add Song", step1_song_path %>
+          </li>
+          <li>
+            <%= link_to "Doneer", new_order_path, class: "pull-right" %>
+          </li>
+          <% if current_member %>
+            <li>
+              Signed in as <%= current_member.first_name %> | <%= link_to "Logout", logout_session_path %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to 'Login', new_session_path %> | <%= link_to 'Signup', '/signup' %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <div class="navbar-nav-placeholder">
+        </div>
+      <% end %>
+    </div><!--/.nav-collapse -->
   </div>
-<% end %>
+</nav>
