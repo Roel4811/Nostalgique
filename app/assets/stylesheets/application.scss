@@ -35,6 +35,11 @@
         url('paris-background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
+    input:focus {outline:0;}
+    button:focus {outline:0;}
+    .main-content {
+      height: 100vh;
+    }
   }
   h3 {
     margin-top: 0;
