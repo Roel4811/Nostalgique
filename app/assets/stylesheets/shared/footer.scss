@@ -1,0 +1,11 @@
+section.footer {
+  padding: 30px 0;
+  .footer-flex {
+    display: flex;
+    border-top: 0.3px solid white;
+    color: white;
+    p {
+      font-size: 1.3em;
+    }
+  }
+}
