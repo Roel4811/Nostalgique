@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_action :authorize, only: [:new]
+  before_action :authorize, except: %i(index show)
   before_action :load_song_wizard, except: %i(validate_step index show)
 
   def index
