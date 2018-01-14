@@ -24,6 +24,9 @@ body.songs {
     }
     .input {
       margin: 20px 0;
+      textarea {
+        font-size: 1.3em;
+      }
     }
     input.string {
       font-size: 1.7em;
