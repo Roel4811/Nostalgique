@@ -10,4 +10,8 @@ class Song < ApplicationRecord
   def current_step
     @current_step || Wizard::Song::STEPS.first
   end
+
+  def artist_name
+    self.artist.name
+  end
 end
