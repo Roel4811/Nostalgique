@@ -1,8 +1,13 @@
 <div class="container">
-
-  <h1><%= @song.name %></h1>
-
-  <p><%= @song.lyrics %></p>
-
-  <p><%= @song.lyrics_en %></p>
+  <h1><%= "#{@song.name} - #{@song.artist_name}" %></h1>
+  <div class="flex-container">
+    <div class="flex-item lyrics_fr">
+      <h3>French lyrics</h3>
+      <p><%= simple_format(@song.lyrics) %></p>
+    </div>
+    <div class="flex-item lyrics_en">
+      <h3>English lyrics</h3>
+      <p><%= @song.lyrics_en ? simple_format(@song.lyrics_en) : "No English lyrics available (yet)" %></p>
+    </div>
+  </div>
 </div>

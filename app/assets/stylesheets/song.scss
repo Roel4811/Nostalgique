@@ -1,0 +1,22 @@
+body.songs.show {
+  .main-content {
+    color: white;
+    h1 {
+      padding-bottom: 35px;
+      border-bottom: 0.3px solid white;
+    }
+  }
+  .flex-container {
+    display: flex;
+    .flex-item {
+      flex: 1;
+      padding-right: 35px;
+    }
+    .lyrics_fr {
+
+    }
+    .lyrics_en {
+
+    }
+  }
+}
