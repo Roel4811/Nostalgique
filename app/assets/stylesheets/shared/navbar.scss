@@ -2,12 +2,21 @@
   border: none;
   background: none;
   font-size: 1.7em;
+  .navbar-nav > li {
+    color: white;
+  }
   .navbar-nav > li > a {
     color: white;
   }
 }
 .navbar-header {
   display: flex;
+  a.root-logo-link {
+    padding: 15px 0;
+    font-size: 1.5em;
+    color: rgba(186, 43, 38, 0.7);
+    font-family: 'Russo One', sans-serif;
+  }
 }
 
 .navbar-border {
