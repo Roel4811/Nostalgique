@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <div class="log-in-card">
         <h3>Log In</h3>
-        <%= simple_form_for :member, url: '/login' do |f| %>
+        <%= simple_form_for :session, url: '/login' do |f| %>
           <%= f.error_notification %>
           <%= f.input :email, label: 'Email' %>
           <%= f.input :password, label: 'Password' %>
