@@ -60,7 +60,6 @@ body.songs.index {
   section.song-cards {
     .flex-container {
       display: flex;
-      height: 100vh;
       // border: 10px solid goldenrod;
       flex-wrap: wrap;
       .song-flex {
@@ -85,6 +84,12 @@ body.songs.index {
       margin: 20px;
       padding: 20px;
       border-radius: 5px;
+      transition: all 0.2s ease;
+      &:focus,
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 7px 14px rgba(255, 255, 255, 0.3), 0 3px 6px rgba(166, 166, 166, 0.08);
+      }
       .song-image {
         img {
           width: 200px;

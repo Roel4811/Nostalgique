@@ -17,38 +17,50 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "shared/navbar";
- // @import "songs";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
  @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+ @import url('https://fonts.googleapis.com/css?family=Russo+One');
 
  $font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
 
-  body {
-    font-family: $font;
-    font-size: 10px;
-    height: 100%;
-    margin: 0;
-    background-image:
-      radial-gradient(
-        circle at top right,
-        rgba(186, 43, 38, 0.7),
-        rgba(57, 23, 106, 1) 50%),
-        url('paris-background.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    input:focus {outline:0;}
-    button:focus {outline:0;}
-    .main-content {
-      min-height: 100vh;
-    }
+body {
+  font-family: $font;
+  font-size: 10px;
+  height: 100%;
+  margin: 0;
+  background-image:
+    radial-gradient(
+      circle at top right,
+      rgba(186, 43, 38, 0.7),
+      rgba(57, 23, 106, 1) 50%),
+      url('paris-background.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  input:focus {outline:0;}
+  button:focus {outline:0;}
+  .main-content {
+    min-height: 100vh;
   }
-  h3 {
-    margin-top: 0;
-  }
+}
+h1 {
+  color: white;
+}
+h3 {
+  margin-top: 0;
+}
 
- .navbar {
-   display: flex;
-   justify-content: space-around;
- }
+a.clean {
+  &:hover {
+    text-decoration: none !important;
+    color: white !important;
+  }
+}
+
+.navbar {
+ display: flex;
+ justify-content: space-around;
+}
 
 .button-standard {
   min-width: 160px;
