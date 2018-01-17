@@ -65,6 +65,7 @@ gem 'simple_form'
 gem 'bcrypt'
 gem "awesome_print", require: "ap"
 gem "figaro"
+gem 'font-awesome-sass'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
