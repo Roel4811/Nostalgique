@@ -5,6 +5,8 @@ class Song < ApplicationRecord
   belongs_to :artist
   belongs_to :member
 
+  enum status: [:pending, :active]
+
   mount_uploader :image, ImageUploader
 
   def current_step
