@@ -6,10 +6,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    root to: "application#home"
+    resources :songs, :artists
+    post 'sign-in', to: "users#sign_in", as: "sign_in_user"
+  end
+
   get '/donate', to: 'orders#new', as: 'new_order'
   get '/thankyou', to: 'orders#confirmation', as: 'orders_confirmation'
   get '/pay', to: 'orders#pay', as: 'pay_order'
-  get '/donate/register', to: 'orders#new_member'
+  get '/donate/register', to: 'orders#new'
   # get 'songs', to: 'songs#index', as: 'songs'
   resources :songs
   resource :song do
@@ -21,11 +27,16 @@ Rails.application.routes.draw do
   end
   resources :artists
 
-  get '/login', to: 'sessions#new', as: 'new_session'
-  post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy', as: 'logout_session'
   get '/signup', to: 'members#new'
-  post '/members', to: 'members#create'
+  resources :members do
+    collection do
+      get 'log_in'
+      post 'create_log_in'
+      delete 'log_out'
+      get 'new_password_reset', to: "members#new_password_reset"
+      post 'password_reset'
+    end
+  end
 
   get '/translate/:id', to: 'songs#translate', as: 'translate_song'
 
