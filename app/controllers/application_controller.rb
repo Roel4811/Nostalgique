@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
 
   def authorize
     session[:return_to] = request.fullpath
-    redirect_to new_session_path unless current_member
+    redirect_to log_in_members_path unless current_member
   end
 end
