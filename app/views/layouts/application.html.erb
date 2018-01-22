@@ -11,6 +11,7 @@
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render 'shared/navbar' %>
     <div id="main-content" class="main-content">
+      <%= flash_msgs %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>
