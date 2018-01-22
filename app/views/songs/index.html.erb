@@ -13,7 +13,7 @@
         <%= link_to(song_path(song), class: "song-flex item-#{i} clean") do %>
           <div class="song-card" %>
             <div class="song-text">
-              <h3><%= song.name %> - <%= song.artist.name %></h3>
+              <h3><%= song.name %> - <%= song.artist_name %></h3>
               <p><%= truncate song.lyrics, length: 350 %></p>
             </div>
             <div class="song-image">
