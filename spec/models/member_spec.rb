@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Member do
+RSpec.describe Member, type: :model do
   describe "send_password_reset" do
     let(:member) { FactoryGirl(:member) }
 
