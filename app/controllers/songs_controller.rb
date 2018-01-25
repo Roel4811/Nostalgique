@@ -20,6 +20,8 @@ class SongsController < ApplicationController
   def step3
     @no_nav = true
     @song = SpotifyFetchSongService.new(@song_wizard.name).call
+    @song_image = @song.album.images[1]["url"]
+    session[:spotify_id] = @song.id
   end
 
   def step4
@@ -33,14 +35,8 @@ class SongsController < ApplicationController
   def validate_step
     current_step = params[:current_step]
     @song_wizard = wizard_song_for_step(current_step)
-
-    if song_wizard_params[:artist].present?
-      session[:artist_name] = song_wizard_params[:artist]
-    else
-      @song_wizard.song.attributes = song_wizard_params
-      session[:song_attributes] = @song_wizard.song.attributes
-    end
-
+    @song_wizard.song.attributes = song_wizard_params
+    session[:song_attributes] = @song_wizard.song.attributes
     if @song_wizard.valid?
       next_step = wizard_song_next_step(current_step)
       create and return unless next_step
@@ -49,6 +45,13 @@ class SongsController < ApplicationController
     else
       render current_step
     end
+
+  rescue ActiveRecord::AssociationTypeMismatch
+    session[:artist_name] = song_wizard_params[:artist] if song_wizard_params[:artist].present?
+    session[:spotify_track_id] = song_wizard_params[:spotify_track_id] if song_wizard_params[:spotify_track_id]
+    next_step = wizard_song_next_step(current_step)
+    create and return unless next_step
+    redirect_to action: next_step
   end
 
   def create
@@ -85,7 +88,7 @@ class SongsController < ApplicationController
     end
 
     def song_wizard_params
-      params.require(:song_wizard).permit(:name, :artist, :lyrics, :lyrics_en)
+      params.require(:song_wizard).permit(:name, :artist, :image, :spotify_id, :spotify_track_id, :lyrics, :lyrics_en)
     end
 
     class InvalidStep < StandardError; end
