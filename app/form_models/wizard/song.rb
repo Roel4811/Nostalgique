@@ -1,6 +1,6 @@
 module Wizard
   module Song
-    STEPS = %w(step1 step2 step3 step4).freeze
+    STEPS = %w(step1 step2 step3 step4 step5).freeze
 
     class Base
       include ActiveModel::Model
@@ -23,10 +23,13 @@ module Wizard
     end
 
     class Step3 < Step2
-      validates :lyrics, presence: true
     end
 
     class Step4 < Step3
+      validates :lyrics, presence: true
+    end
+
+    class Step5 < Step4
       validates :lyrics_en, presence: true
     end
   end
