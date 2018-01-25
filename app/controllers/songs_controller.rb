@@ -19,16 +19,21 @@ class SongsController < ApplicationController
 
   def step3
     @no_nav = true
+    @song = SpotifyFetchSongService.new(@song_wizard.name).call
   end
 
   def step4
     @no_nav = true
   end
 
+  def step5
+    @no_nav = true
+  end
+
   def validate_step
     current_step = params[:current_step]
-
     @song_wizard = wizard_song_for_step(current_step)
+
     if song_wizard_params[:artist].present?
       session[:artist_name] = song_wizard_params[:artist]
     else
