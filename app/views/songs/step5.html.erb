@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="add-song-card">
+        <h3>French lyrics</h3>
+        <p><%= simple_format(@song_wizard.lyrics) %></p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="add-song-card">
+        <h3>Let's add a song!</h3>
+        <%= simple_form_for @song_wizard, as: :song_wizard, url: validate_step_song_path do |f| %>
+          <%= f.error_notification %>
+
+          <%= hidden_field_tag :current_step, 'step5' %>
+
+          <%= f.input :lyrics_en, as: :text, autofocus: true, input_html: {style: 'width: 100%', rows: 20, class: 'response-project'}, label: 'Please translate the lyrics to English', error: 'Please specify English lyrics' %>
+          <div class="form-action">
+            <%= f.submit 'Continue', class: "button-standard" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
