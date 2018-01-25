@@ -40,6 +40,10 @@ body.songs {
         margin-left: 0;
       }
     }
+    &.fetch-song-card {
+      display: flex;
+      width: fit-content;
+    }
   }
 }
 
