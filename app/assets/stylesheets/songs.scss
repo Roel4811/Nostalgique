@@ -42,7 +42,36 @@ body.songs {
     }
     &.fetch-song-card {
       display: flex;
-      width: fit-content;
+      width: max-content;
+      .song-form {
+        position: relative;
+        h2 {
+          margin-top: 0px;
+        }
+        display: flex;
+        flex-direction: column;
+        .input-field {
+          position: absolute;
+          bottom: 100px;
+        }
+        .form-action {
+          position: absolute;
+          bottom: 0;
+        }
+      }
+      .song-card {
+        padding: 33px 0 0 50px;
+        .song-text {
+          h3 {
+            margin-bottom: 15px;
+          }
+        }
+        .song-image {
+          img {
+            width: 250px;
+          }
+        }
+      }
     }
   }
 }
