@@ -14,8 +14,6 @@ RSpec.describe "GetTrackFromSpotify", type: :request do
     click_button "Continue"
     fill_in "artist", with: "Orelsan"
     click_button "Continue"
-    click_button "Check for song on Spotify"
-    sleep(2)
     page.should have_content("Song found!")
     click_button "Continue"
     @song_wizard.image_url.should exist
