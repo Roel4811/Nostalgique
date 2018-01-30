@@ -21,6 +21,7 @@ class SongsController < ApplicationController
     @no_nav = true
     @song = SpotifyFetchSongService.new(@song_wizard.name).call
     @song_image = @song.album.images[1]["url"]
+    session[:song_image_url] = @song_image
     session[:spotify_id] = @song.id
   end
 
@@ -55,12 +56,15 @@ class SongsController < ApplicationController
   end
 
   def create
-    @artist = Artist.find_or_create_by(name: session[:artist_name])
-    @song_wizard.song.artist = @artist
+    artist = Artist.find_or_create_by(name: session[:artist_name])
+    image_url = session[:song_image_url]
+    @song_wizard.song.artist = artist
     @song_wizard.song.member = current_member
+    @song_wizard.song.image_url = image_url
     if @song_wizard.song.save!
       session[:song_attributes] = nil
       session[:artist_name] = nil
+      session[:song_image_url] = nil
       redirect_to root_path, notice: "Song successfully created"
     else
       redirect_to({ action: Wizard::Song::STEPS.first }, alert: 'There was a problem when creating the song.')
@@ -88,7 +92,7 @@ class SongsController < ApplicationController
     end
 
     def song_wizard_params
-      params.require(:song_wizard).permit(:name, :artist, :image, :spotify_id, :spotify_track_id, :lyrics, :lyrics_en)
+      params.require(:song_wizard).permit(:name, :artist, :image_url, :spotify_id, :spotify_track_id, :lyrics, :lyrics_en)
     end
 
     class InvalidStep < StandardError; end
