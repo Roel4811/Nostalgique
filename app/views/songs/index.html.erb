@@ -17,7 +17,7 @@
               <p><%= truncate song.lyrics, length: 350 %></p>
             </div>
             <div class="song-image">
-              <%= image_tag(song.image_url(:thumb).to_s) %>
+              <%= image_tag(song.image_url) if song.image_url %>
             </div>
           </div>
         <% end %>
