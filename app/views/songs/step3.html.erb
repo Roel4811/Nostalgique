@@ -7,7 +7,6 @@
           <%= simple_form_for @song_wizard, as: :song_wizard, url: validate_step_song_path do |f| %>
             <%= f.error_notification %>
             <%= hidden_field_tag :current_step, 'step3' %>
-            <%= f.input :image, as: :hidden, value: @song_image %>
             <div class="input-field">
               <h3>Is this your song?</h3>
               <%= f.input :spotify_track_id, as: :radio_buttons, label: false %>
