@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nostalgique</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+    <meta name="robots" content="noindex, nofollow">
+  </head>
+
+  <body class="<%= controller_name %> <%= action_name %>">
+    <%= render 'shared/admin_navbar' %>
+    <div id="main-content" class="main-content">
+      <%= flash_msgs %>
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
+  </body>
+</html>
