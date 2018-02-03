@@ -1,0 +1,31 @@
+<div class="side-menu">
+  <div class="admin-filters">
+    <div class="flex-header">
+      <h2>Filters</h2>
+      <%= link_to("Reset", "#", class: "btn-round-transparent blue") %>
+    </div>
+    <div class="flex-filter-item">
+      <label for="">Deleted</label>
+      <div class="btn-group">
+        <%= link_to("No", "#", class: "btn-default-blue active") %>
+        <%= link_to("Both", "#", class: "btn-default-blue") %>
+        <%= link_to("Yes", "#", class: "btn-default-blue") %>
+      </div>
+    </div>
+    <div class="flex-filter-item">
+      <form>
+        <label for="">Search</label>
+        <p class="wrapper"><input name="search" value="<%= params[:search] %>" placeholder=" search here" /></p>
+      </form>
+    </div>
+    <div class="flex-filter-item">
+
+    </div>
+    <div class="flex-filter-item">
+
+    </div>
+  </div>
+  <div id="current_song">
+
+  </div>
+</div>
