@@ -1,0 +1,33 @@
+<div class="content-container">
+  <table class="">
+    <thead>
+      <tr>
+        <th><%= Song.human_attribute_name(:id) %></th>
+        <th><%= Song.human_attribute_name(:name) %></th>
+        <th><%= Song.human_attribute_name(:created_at) %></th>
+        <th><%= Song.human_attribute_name(:artist) %></th>
+        <th><%= Song.human_attribute_name(:member) %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% songs.each do |song| %>
+        <tr class="">
+          <td><%= song.id %></td>
+          <td><%= song.name %></td>
+          <td><%= song.created_at.strftime("%d-%m-%y") %></td>
+          <td><%= song.artist_name %></td>
+          <td><%= song.member_name %></td>
+          <td>
+            <%= link_to("Info", admin_song_path(song), class: "more-link", remote: true) %>
+            <%#= song.show_button('btn-xs') %>
+            <%#= song.remove_device_id_button('btn-xs') %>
+            <%#= song.edit_button('btn-xs') %>
+            <%#= song.delete_button('btn-xs') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
