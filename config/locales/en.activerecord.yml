@@ -1,0 +1,13 @@
+en:
+  attributes:
+  activerecord:
+    models:
+      song:
+        one: "Song"
+        other: "Songs"
+      artist:
+        one: "Artist"
+        other: "Artists"
+      member:
+        one: "Member"
+        other: "Members"
