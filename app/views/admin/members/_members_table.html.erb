@@ -1,0 +1,35 @@
+<div class="content-container">
+  <table class="">
+    <thead>
+      <tr>
+        <th><%= Member.human_attribute_name(:id) %></th>
+        <th><%= Member.human_attribute_name(:first_name) %></th>
+        <th><%= Member.human_attribute_name(:last_name) %></th>
+        <th><%= Member.human_attribute_name(:email) %></th>
+        <th><%= Member.human_attribute_name(:date_of_birth) %></th>
+        <th><%= Member.human_attribute_name(:created_at) %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% members.each do |member| %>
+        <tr class="">
+          <td><%= member.id %></td>
+          <td><%= member.first_name %></td>
+          <td><%= member.last_name %></td>
+          <td><%= member.email %></td>
+          <td><%= member.date_of_birth %></td>
+          <td><%= member.created_at.strftime("%d-%m-%y") %></td>
+          <td>
+            <%= link_to("More", admin_member_path(member), class: "more-link") %>
+            <%#= member.show_button('btn-xs') %>
+            <%#= member.remove_device_id_button('btn-xs') %>
+            <%#= member.edit_button('btn-xs') %>
+            <%#= member.delete_button('btn-xs') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
