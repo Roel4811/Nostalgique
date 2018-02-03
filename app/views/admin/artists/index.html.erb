@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 remove-padding">
+      <%= render 'filters' %>
+    </div>
+    <div class="col-sm-9">
+      <div class="records-table">
+        <h1>
+          <%= @artists_count %>
+          <%= Artist.model_name.human(count: @artists_count) %>
+        </h1>
+        <div class="action-buttons pull-right">
+          <%= link_to("Add Artist", new_admin_artist_path, class: "btn-round-transparent") %>
+        </div>
+        <%= render 'artists_table', artists: @artists %>
+      </div>
+    </div>
+  </div>
+</div>
