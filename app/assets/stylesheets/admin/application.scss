@@ -1,0 +1,186 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+$font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
+$default_blue: #3FA3FC;
+$lightblue: #fbfdff;
+$grey: #a2a2a2cc;
+
+
+@import "artists";
+@import "songs";
+@import "buttons";
+
+@mixin size($width, $height: $width) {
+  max-width: $width;
+  max-height: $height;
+}
+
+body {
+  font-size: 10px;
+  h2 {
+    font-weight: 400;
+  }
+  .main-content {
+    background-color: $lightblue;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline: none;
+  }
+}
+
+.navbar-default {
+  border: none;
+  background: $default_blue;
+  font-size: 1.7em;
+  margin-bottom: 0;
+  border-radius: 0;
+  .navbar-nav > li {
+    color: white;
+  }
+  .navbar-nav > li > a {
+    color: white;
+  }
+  ul.navbar-right {
+    margin-top: 8px;
+  }
+}
+.navbar-header {
+  display: flex;
+  a.root-logo-link {
+    padding: 15px 0;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Russo One', sans-serif;
+  }
+}
+
+.admin-log-in {
+  form {
+    .form-inputs {
+      margin: 25px 0;
+    }
+    input {
+      border: none;
+      border-bottom: 1px solid black;
+    }
+    label {
+      font-size: 1.7em;
+      display: block;
+    }
+  }
+}
+
+.remove-padding {
+  padding: 0;
+}
+
+.side-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 15px;
+  background-color: #343643;
+  .admin-filters {
+    display: flex;
+    flex-direction: column;
+    .flex-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      h2 {
+        color: white;
+      }
+      .btn-round-transparent.blue {
+        margin: 20px 0 10px;
+      }
+    }
+    .flex-filter-item {
+      label {
+        display: block;
+        color: $grey;
+        font-weight: 400;
+        font-size: 1.4em;
+        margin: 25px 0 10px;
+      }
+      .wrapper input[type="text"] {
+        position: relative;
+      }
+      input {
+        font-family: 'FontAwesome';
+        position: relative;
+        content: "\f002";
+        height: 34px;
+        font-size: 1.5em;
+        color: $grey;
+        width: 100%;
+        background-color: #343643;
+        border: none;
+        border-bottom: 1px solid $grey;
+        &:focus {
+          border-bottom: 1px solid $default_blue;
+        }
+      }
+    }
+  }
+  #current_song {
+    color: white;
+    img.square {
+      @include size(275px);
+    }
+  }
+}
+
+.records-table {
+  h1 {
+    font-size: 3em;
+    padding: 35px;
+    display: inline-block;
+  }
+  .action-buttons {
+    margin: 25px 0 10px 0;
+    padding: 35px;
+    display: inline-block;
+  }
+  background-color: white;
+  margin: 30px 20px 0 20px;
+  -webkit-box-shadow: 0px 0px 10px 2px rgba(150,150,150,0.42);
+  -moz-box-shadow: 0px 0px 10px 2px rgba(150,150,150,0.42);
+  box-shadow: 0px 0px 10px 2px rgba(150,150,150,0.42);
+  table {
+    width: 100%;
+    font-size: 1.4em;
+    tr {
+      height: 35px;
+    }
+    th {
+      padding: 5px;
+      text-transform: uppercase;
+      &:first-child {
+        padding-left: 40px;
+      }
+    }
+    td {
+      padding: 5px;
+      &:first-child {
+        padding-left: 40px;
+      }
+    }
+    tbody {
+      tr:nth-child(odd) {
+        background-color: $lightblue;
+      }
+      .more-link {
+        color: $default_blue;
+      }
+    }
+  }
+}
