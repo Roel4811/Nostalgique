@@ -1,0 +1,31 @@
+<div class="content-container">
+  <table class="">
+    <thead>
+      <tr>
+        <th><%= Artist.human_attribute_name(:id) %></th>
+        <th><%= Artist.human_attribute_name(:name) %></th>
+        <th><%= Artist.human_attribute_name(:created_at) %></th>
+        <th><%= Artist.human_attribute_name(:updated_at) %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% artists.each do |artist| %>
+        <tr class="">
+          <td><%= artist.id %></td>
+          <td><%= artist.name %></td>
+          <td><%= artist.created_at.strftime("%d-%m-%y") %></td>
+          <td><%= artist.updated_at.strftime("%d-%m-%y") %></td>
+          <td>
+            <%= link_to("More", admin_artists_path(artist), class: "more-link") %>
+            <%#= artist.show_button('btn-xs') %>
+            <%#= artist.remove_device_id_button('btn-xs') %>
+            <%#= artist.edit_button('btn-xs') %>
+            <%#= artist.delete_button('btn-xs') %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
