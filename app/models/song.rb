@@ -15,4 +15,20 @@ class Song < ApplicationRecord
   def artist_name
     self.artist.name if self.artist
   end
+
+  def member_name
+    self.member.whole_name if self.member
+  end
+
+  private
+
+  def self.search(query)
+    if query.present?
+      query.strip!
+      where('songs.name ILIKE :query', query: "%#{query.downcase}%")
+    else
+      all
+    end
+  end
+
 end
