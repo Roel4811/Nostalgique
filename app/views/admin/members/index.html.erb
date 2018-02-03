@@ -1,0 +1,19 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 remove-padding">
+      <%= render 'filters' %>
+    </div>
+    <div class="col-sm-9">
+      <div class="records-table">
+        <h1>
+          <%= @members_count %>
+          <%= Member.model_name.human(count: @members_count) %>
+        </h1>
+        <div class="action-buttons pull-right">
+          <%= link_to("Add Member", new_admin_member_path, class: "btn-round-transparent") %>
+        </div>
+        <%= render 'members_table', members: @members %>
+      </div>
+    </div>
+  </div>
+</div>
