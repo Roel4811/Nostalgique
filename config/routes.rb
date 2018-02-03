@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root to: "application#home"
-    resources :songs, :artists
+    root to: "songs#index"
+    resources :songs, :artists, :members
     post 'sign-in', to: "users#sign_in", as: "sign_in_user"
   end
 
