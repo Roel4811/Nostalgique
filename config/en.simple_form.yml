@@ -1,0 +1,9 @@
+en:
+  simple_form:
+    placeholders:
+    labels:
+      defaults:
+      song:
+        new:
+          lyrics: "French lyrics"
+          lyrics_en: "English Lyrics"
