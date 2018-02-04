@@ -1,7 +1,7 @@
 class Admin::ArtistsController < Admin::ApplicationController
 
   def index
-    @artists = Artist.all
+    @artists = Artist.search(params[:search])
     @artists_count = @artists.count
   end
 
