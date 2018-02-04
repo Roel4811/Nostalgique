@@ -1,4 +1,7 @@
-<h2>Song Info</h2>
+<div class="current-song-header">
+  <h2>Song Info</h2>
+  <%= link_to("Edit", edit_admin_song_path(song), class: "edit-song blue") %>
+</div>
 <%= image_tag(song.image_url, class: "square") if song.image_url %>
-<p><%= song.name %><p>
+<h4><%= song.name %></h4>
 <p><%= song.artist_name %></p>
