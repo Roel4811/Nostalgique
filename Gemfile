@@ -70,6 +70,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'simple_form'
 gem 'bcrypt'
+gem 'select2-rails'
 gem "awesome_print", require: "ap"
 gem "figaro"
 gem 'font-awesome-sass'
