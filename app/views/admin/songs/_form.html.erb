@@ -1,0 +1,20 @@
+<%= simple_form_for [:admin, @song], url: admin_song_path, method: :patch do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <div class="input-fields group-name">
+      <%= f.input :name %>
+      <%= f.input :artist %>
+    </div>
+    <div class="input-fields group-lyrics">
+      <%= f.input :lyrics, as: :text, autofocus: true, input_html: {style: 'width: 100%', rows: 20, class: 'response-project'} %>
+      <%= f.input :lyrics_en, as: :text, autofocus: true, input_html: {style: 'width: 100%', rows: 20, class: 'response-project'} %>
+    </div>
+    <div class="input-fields group-image">
+      <%= f.input :image_url %>
+      <%= f.association :member, label_method: lambda { |member| "#{member.first_name}" } %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn-round-transparent' %>
+  </div>
+<% end %>
