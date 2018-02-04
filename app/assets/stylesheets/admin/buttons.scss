@@ -1,6 +1,6 @@
 $font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
 $default_blue: #3FA3FC;
-$lightblue: #fbfdff;
+$lightblue: #f2f5f8;
 $grey: #a2a2a2cc;
 
 .btn-round-transparent {
@@ -66,5 +66,16 @@ $grey: #a2a2a2cc;
   a:last-child {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+  }
+}
+
+.edit-song {
+  font-size: 1.6em;
+  margin: 20px 0 10px;
+  line-height: 37px;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    color: $default_blue;
   }
 }
