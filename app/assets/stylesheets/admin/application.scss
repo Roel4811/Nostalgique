@@ -7,18 +7,13 @@
 
 $font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
 $default_blue: #3FA3FC;
-$lightblue: #fbfdff;
+$lightblue: #f2f5f8;
 $grey: #a2a2a2cc;
 
 
 @import "artists";
 @import "songs";
 @import "buttons";
-
-@mixin size($width, $height: $width) {
-  max-width: $width;
-  max-height: $height;
-}
 
 body {
   font-size: 10px;
@@ -27,6 +22,7 @@ body {
   }
   .main-content {
     background-color: $lightblue;
+    min-height: calc(100vh - 66px);
   }
   input:focus,
   select:focus,
@@ -34,6 +30,10 @@ body {
   button:focus {
       outline: none;
   }
+}
+
+.bue {
+  color: $default_blue;
 }
 
 .navbar-default {
@@ -86,7 +86,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: calc(100vh - 66px);
   padding: 15px;
   background-color: #343643;
   .admin-filters {
@@ -129,12 +129,6 @@ body {
           border-bottom: 1px solid $default_blue;
         }
       }
-    }
-  }
-  #current_song {
-    color: white;
-    img.square {
-      @include size(275px);
     }
   }
 }
