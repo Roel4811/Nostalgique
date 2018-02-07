@@ -23,10 +23,8 @@ class MembersController < ApplicationController
       url = session[:return_to] || root_path
       session[:return_to] = nil
       url = root_path if url.eql?(log_out_members_path)
-      puts "URL to redirect to: #{url}"
       redirect_to url
     else
-      puts "failed to log-in"
       redirect_to log_in_members_path
     end
   end
