@@ -27,11 +27,11 @@
           </li>
           <% if current_user %>
             <li>
-              <%= link_to "Logout #{current_user.name}", log_out_members_path, method: :delete %>
+              <%= link_to "Logout #{current_user.name}", log_out_admin_users_path, method: :delete %>
             </li>
           <% else %>
             <li>
-              <%= link_to 'Login', log_in_members_path %>
+              <%= link_to 'Login', log_in_admin_users_path %>
             </li>
           <% end %>
         </ul>
