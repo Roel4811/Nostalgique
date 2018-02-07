@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "songs#index"
     resources :songs, :artists, :members
-    post 'sign-in', to: "users#sign_in", as: "sign_in_user"
+    resources :users do
+      collection do
+        get 'log_in'
+        post 'create_log_in'
+        delete 'log_out'
+      end
+    end
   end
 
   get '/donate', to: 'orders#new', as: 'new_order'
