@@ -3,7 +3,7 @@
     <% if !current_user %>
       <div class="admin-log-in">
         <h1><%= 'Log in' %></h1>
-        <%= simple_form_for(:user, url: admin_sign_in_user_path, method: :post) do |f| %>
+        <%= simple_form_for(:user, url: create_log_in_admin_users_path, method: :post) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
