@@ -1,5 +1,6 @@
 class Admin::SongsController < Admin::ApplicationController
   before_action :set_song, only: [:show, :edit, :update]
+  before_action :authorize
 
   def index
     @songs = Song.search(params[:search])
