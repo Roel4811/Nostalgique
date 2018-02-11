@@ -41,6 +41,10 @@ $grey: #a2a2a2cc;
   }
 }
 
+.deleted {
+  background-color: #34364336 !important;
+}
+
 #current_song {
   color: $grey;
   position: fixed;
