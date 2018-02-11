@@ -21,6 +21,7 @@
 
  $font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
 
+ @import "shared/footer";
  @import "shared/navbar";
  @import "artists";
  @import "song";
