@@ -4,9 +4,9 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def create_log_in
-    user = User.find_by(email: sign_in_params[:email], deleted_at: nil)
+    user = User.find_by(email: log_in_params[:email], deleted_at: nil)
 
-    if user && user.authenticate(sign_in_params[:password])
+    if user && user.authenticate(log_in_params[:password])
       session[:user_id] = user.id
       url = session[:return_to] || root_path
       session[:return_to] = nil

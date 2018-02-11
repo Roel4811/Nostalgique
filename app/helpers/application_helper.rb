@@ -11,4 +11,5 @@ module ApplicationHelper
     end
     string.html_safe
   end
+
 end
