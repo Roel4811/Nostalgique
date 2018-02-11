@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "songs#index"
-    resources :songs, :artists, :members
+    resources :songs do
+      post 'delete', on: :member
+    end
+    resources :artists, :members
     resources :users do
       collection do
         get 'log_in'
