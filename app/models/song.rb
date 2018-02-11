@@ -8,6 +8,9 @@ class Song < ApplicationRecord
 
   enum status: [:pending, :active]
 
+  scope :without_deleted, -> { where(songs: { deleted_at: nil }) }
+  scope :only_deleted, -> { where.not(songs: { deleted_at: nil }) }
+
   def current_step
     @current_step || Wizard::Song::STEPS.first
   end
