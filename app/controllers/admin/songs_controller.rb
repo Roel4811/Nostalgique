@@ -1,16 +1,15 @@
 class Admin::SongsController < Admin::ApplicationController
-  before_action :set_song, only: [:show, :edit, :update]
+  before_action :set_song, only: [:show, :edit, :update, :delete]
   before_action :authorize
 
   def index
     @songs = Song.search(params[:search])
+    @songs = @songs.send(show_or_hide_deleted)
+    @songs = @songs.order("songs.#{sort_column} #{sort_direction}, songs.id DESC")
     @songs_count = @songs.count
   end
 
   def show
-    # respond_to do |format|
-    #   format.js
-    # end
   end
 
   def new
@@ -45,11 +44,28 @@ class Admin::SongsController < Admin::ApplicationController
     end
   end
 
+  def delete
+    if @song.deleted_at.blank?
+      @song.deleted_at = DateTime.now
+      flash[:notice] = "Song is deleted"
+    else
+      flash[:notice] = "Song is restored"
+      @song.deleted_at = nil
+    end
+    @song.save(validate: false)
+    redirect_to admin_root_path
+  end
+
   private
 
   def song_params
     params.require(:song).permit(:name, :member_id, :image_url, :lyrics, :lyrics_en)
   end
+
+  def sort_column
+    Song.column_names.include?(params[:sort]) ? params[:sort] : 'id'
+  end
+  helper_method :sort_column
 
   def artist_params
     params.require(:song).permit(:artist)
