@@ -2,7 +2,7 @@
   <table class="">
     <thead>
       <tr>
-        <th><%= Song.human_attribute_name(:id) %></th>
+        <th><%= sort_link(Song.human_attribute_name(:id)) %></th>
         <th><%= Song.human_attribute_name(:name) %></th>
         <th><%= Song.human_attribute_name(:created_at) %></th>
         <th><%= Song.human_attribute_name(:artist) %></th>
@@ -13,13 +13,18 @@
 
     <tbody>
       <% songs.each do |song| %>
-        <tr class="">
+        <tr class="<%= 'deleted' if song.deleted_at.present? %>">
           <td><%= song.id %></td>
           <td><%= song.name %></td>
           <td><%= song.created_at.strftime("%d-%m-%y") %></td>
           <td><%= song.artist_name %></td>
           <td><%= song.member_name %></td>
           <td>
+            <% if song.deleted_at %>
+              <%= link_to("Res", delete_admin_song_path(song), method: :post, class: "restore-link") %>
+            <% else %>
+              <%= link_to("Del", delete_admin_song_path(song), method: :post, data: { confirm: "Are you sure?" }, class: "delete-link") %>
+            <% end %>
             <%= link_to("Info", admin_song_path(song), class: "more-link", remote: true) %>
             <%#= song.show_button('btn-xs') %>
             <%#= song.remove_device_id_button('btn-xs') %>
