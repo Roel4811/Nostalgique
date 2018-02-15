@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   before_action :load_song_wizard, except: %i(validate_step index show)
 
   def index
-    @songs = Song.all
+    @songs = Song.without_deleted
   end
 
   def new
