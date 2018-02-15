@@ -27,6 +27,6 @@ module AdminHelper
     klass = sort_direction == "asc" ? "fa fa-angle-down" : "fa fa-angle-up"
     new_direction = sort_direction == "asc" ? "desc" : "asc"
 
-    link_to(column_name, params.merge(sort: column_name, direction: new_direction), class: klass)
+    # link_to(column_name, params.merge(sort: column_name, direction: new_direction), class: klass)
   end
 end
