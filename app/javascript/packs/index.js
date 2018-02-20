@@ -1,10 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import SongCards from '../components/SongCards'
+import SongCards from '../components/SongCards';
+import SongForm from '../components/SongForm';
+import TestComponent from '../components/TestComponent';
 // import NotFound from '../components/NotFound';
 
-document.addEventListener('turbolinks:render', () => {
+document.addEventListener("DOMContentLoaded", () => {
  const songs_node = document.getElementById('songs_data');
  const new_song_node = document.getElementById('user_data');
  if (songs_node) {
@@ -13,6 +15,6 @@ document.addEventListener('turbolinks:render', () => {
  }
  if (new_song_node) {
    const data = JSON.parse(new_song_node.getAttribute('data'));
-   render(<AddSong user_id={data} />, document.querySelector('#user_id'));
+   render(<SongForm user={data} />, document.querySelector('#add_song_card'));
  }
 });
