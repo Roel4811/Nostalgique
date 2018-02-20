@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div id="add_song_card"></div>
       <div class="add-song-card">
         <h2>Let's add a song!</h2>
         <%= simple_form_for @song_wizard, as: :song_wizard, url: validate_step_song_path do |f| %>
