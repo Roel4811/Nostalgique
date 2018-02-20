@@ -1,15 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h3>Let's add a song!</h3>
-      <%= simple_form_for @song_wizard, as: :song_wizard, url: validate_step_song_path do |f| %>
-        <%= f.error_notification %>
+      <div data="<%= @user.to_json %>" id="user_data"></div>
+      <div id="add_song_card">
 
-        <%= hidden_field_tag :current_step, 'step1' %>
-        <%= f.input :name %>
-
-        <%= f.submit 'Continue' %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
