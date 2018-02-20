@@ -16,6 +16,11 @@ var songValues = {
 class SongForm extends React.Component {
   constructor() {
     super();
+
+    this.saveValues = this.saveValues.bind(this);
+    this.nextStep = this.nextStep.bind(this);
+    this.previousStep = this.previousStep.bind(this);
+    
     this.state = {
       step: 1
     }
@@ -42,26 +47,26 @@ class SongForm extends React.Component {
   render() {
     switch (this.state.step) {
       case 1:
-        return <InputSongName songValues={songValue}
+        return <InputSongName songValues={songValues}
                               nextStep={this.nextStep}
                               saveValues={this.saveValues} />
       case 2:
-        return <InputArtistName songValues={songValue}
+        return <InputArtistName songValues={songValues}
                               nextStep={this.nextStep}
                               saveValues={this.saveValues}
                               previousStep={this.previousStep} />
       case 3:
-        return <InputLyrics songValues={songValue}
+        return <InputLyrics songValues={songValues}
                               nextStep={this.nextStep}
                               saveValues={this.saveValues}
                               previousStep={this.previousStep} />
       case 4:
-        return <InputLyricsEnglish songValues={songValue}
+        return <InputLyricsEnglish songValues={songValues}
                               nextStep={this.nextStep}
                               saveValues={this.saveValues}
                               previousStep={this.previousStep} />
       case 5:
-        return <AddSongConfirmation songValues={songValue}
+        return <AddSongConfirmation songValues={songValues}
                               previousStep={this.previousStep} />
     }
   }
