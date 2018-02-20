@@ -35,10 +35,8 @@ body.songs {
       border: none;
       border-bottom: 1px solid grey;
     }
-    .form-action {
-      .button-standard {
-        margin-left: 0;
-      }
+    .button-standard {
+      margin-left: 0;
     }
     &.fetch-song-card {
       display: flex;
