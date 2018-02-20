@@ -1,12 +1,13 @@
 class SongsController < ApplicationController
   before_action :authorize, except: %i(index show)
-  before_action :load_song_wizard, except: %i(validate_step index show)
+  before_action :load_song_wizard, except: %i(validate_step index show new)
 
   def index
     @songs = Song.without_deleted
   end
 
   def new
+    @user = current_member
   end
 
   def step1
