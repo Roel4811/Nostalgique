@@ -18,8 +18,7 @@ class InputArtistName extends React.Component {
   }
   render() {
     return (
-      <div className="add-song-card">
-        <h2>Let's add a song!</h2>
+      <div>
         <label>What is the name of the Artist?</label>
         <input className="string required" type="text" ref="artist_name" defaultValue={this.props.songValues.artist_name}/>
 
