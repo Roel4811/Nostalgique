@@ -20,7 +20,7 @@ class SongForm extends React.Component {
     this.saveValues = this.saveValues.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.previousStep = this.previousStep.bind(this);
-    
+
     this.state = {
       step: 1
     }
@@ -44,7 +44,7 @@ class SongForm extends React.Component {
     });
   }
 
-  render() {
+  showStep() {
     switch (this.state.step) {
       case 1:
         return <InputSongName songValues={songValues}
@@ -69,6 +69,23 @@ class SongForm extends React.Component {
         return <AddSongConfirmation songValues={songValues}
                               previousStep={this.previousStep} />
     }
+  }
+
+  render() {
+    var style = {
+      width : (this.state.step / 4 * 100) + '%'
+    }
+
+    return (
+      <div className="add-song-card">
+        <span className="progress-step">Step {this.state.step}</span>
+        <div className="progress">
+          <div className="progress-bar" style={style}></div>
+        </div>
+        <h2>Let's add a song!</h2>
+        {this.showStep()}
+      </div>
+    )
   }
 }
 

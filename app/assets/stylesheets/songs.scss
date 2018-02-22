@@ -10,11 +10,13 @@ body.songs {
   }
   .add-song-card {
     border-radius: 10px;
-    // width: 350px;
-    // height: 50vh;
     margin: 100px auto;
     background: white;
     padding: 50px;
+    .progress-bar {
+      height: 30px;
+      background-color: rgba(57, 23, 106, 1);
+    }
     form {
       height: 100%;
     }
