@@ -18,8 +18,7 @@ class InputLyrics extends React.Component {
   }
   render() {
     return (
-      <div className="add-song-card">
-        <h2>Let's add a song!</h2>
+      <div>
         <label>What are the lyrics of the Song (in French)?</label>
         <input className="string required" type="text" ref="lyrics" defaultValue={this.props.songValues.lyrics}/>
 

@@ -10,7 +10,8 @@ var songValues = {
   song_name: null,
   artist_name: null,
   lyrics: null,
-  lyrics_english: null
+  lyrics_english: null,
+  image_url: null
 }
 
 class SongForm extends React.Component {
