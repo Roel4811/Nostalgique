@@ -7,6 +7,7 @@
         <th><%= Song.human_attribute_name(:created_at) %></th>
         <th><%= Song.human_attribute_name(:artist) %></th>
         <th><%= Song.human_attribute_name(:member) %></th>
+        <th><%= Song.human_attribute_name(:status) %></th>
         <th></th>
       </tr>
     </thead>
@@ -19,6 +20,7 @@
           <td><%= song.created_at.strftime("%d-%m-%y") %></td>
           <td><%= song.artist_name %></td>
           <td><%= song.member_name %></td>
+          <td><%= song.status %></td>
           <td>
             <% if song.deleted_at %>
               <%= link_to("Res", delete_admin_song_path(song), method: :post, class: "restore-link") %>
