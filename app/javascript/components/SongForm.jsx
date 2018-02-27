@@ -4,7 +4,7 @@ import InputSongName from '../components/InputSongName';
 import InputArtistName from '../components/InputArtistName';
 import InputLyrics from '../components/InputLyrics';
 import InputLyricsEnglish from '../components/InputLyricsEnglish';
-import AddSongConfirmation from '../components/AddSongConfirmation';
+import AddSongOverview from '../components/AddSongConfirmation';
 
 var songValues = {
   song_name: null,
@@ -67,14 +67,17 @@ class SongForm extends React.Component {
                               saveValues={this.saveValues}
                               previousStep={this.previousStep} />
       case 5:
-        return <AddSongConfirmation songValues={songValues}
+        return <AddSongOverview songValues={songValues}
+                              saveValues={this.saveValues}
                               previousStep={this.previousStep} />
+      case 6:
+        return <AddSongConfirmation songValues={songValues} />
     }
   }
 
   render() {
     var style = {
-      width : (this.state.step / 4 * 100) + '%'
+      width : (this.state.step / 5 * 100) + '%'
     }
 
     return (
