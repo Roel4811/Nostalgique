@@ -1,9 +1,9 @@
 class SongsController < ApplicationController
   before_action :authorize, except: %i(index show)
-  before_action :load_song_wizard, except: %i(validate_step index show new)
+  before_action :load_song_wizard, except: %i(validate_step index show new create)
 
   def index
-    @songs = Song.without_deleted
+    @songs = Song.without_deleted.only_active
   end
 
   def new
@@ -57,18 +57,18 @@ class SongsController < ApplicationController
   end
 
   def create
-    artist = Artist.find_or_create_by(name: session[:artist_name])
-    image_url = session[:song_image_url]
-    @song_wizard.song.artist = artist
-    @song_wizard.song.member = current_member
-    @song_wizard.song.image_url = image_url
-    if @song_wizard.song.save!
-      session[:song_attributes] = nil
-      session[:artist_name] = nil
-      session[:song_image_url] = nil
-      redirect_to root_path, notice: "Song successfully created"
+    song = Song.new
+    artist = Artist.find_or_create_by(name: song_params[:artist_name])
+    song.artist = artist
+    song.member = current_member
+    song.name = song_params[:name]
+    song.lyrics = song_params[:lyrics]
+    song.lyrics_en = song_params[:lyrics_english]
+
+    if song.save!
+      redirect_to root_path, notice: "You song is under review and will appear soon!"
     else
-      redirect_to({ action: Wizard::Song::STEPS.first }, alert: 'There was a problem when creating the song.')
+      redirect_to '/songs/new', alert: 'There was a problem when creating the song'
     end
   end
 
@@ -94,6 +94,10 @@ class SongsController < ApplicationController
 
     def song_wizard_params
       params.require(:song_wizard).permit(:name, :artist, :image_url, :spotify_id, :spotify_track_id, :lyrics, :lyrics_en)
+    end
+
+    def song_params
+      params.require(:song).permit(:name, :artist_name, :lyrics, :lyrics_english)
     end
 
     class InvalidStep < StandardError; end
