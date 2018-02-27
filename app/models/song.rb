@@ -1,7 +1,6 @@
 class Song < ApplicationRecord
   validates :name, presence: true
   validates :lyrics, presence: true
-  validates :image_url, presence: true
 
   belongs_to :artist
   belongs_to :member
@@ -10,6 +9,7 @@ class Song < ApplicationRecord
 
   scope :without_deleted, -> { where(songs: { deleted_at: nil }) }
   scope :only_deleted, -> { where.not(songs: { deleted_at: nil }) }
+  scope :only_active, -> { where(songs: {status: 'active' }) }
 
   def current_step
     @current_step || Wizard::Song::STEPS.first
