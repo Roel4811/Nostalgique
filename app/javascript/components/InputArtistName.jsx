@@ -1,9 +1,7 @@
 import React from 'react';
 
 class InputArtistName extends React.Component {
-  saveAndContinue(e) {
-    e.preventDefault();
-
+  saveAndContinue() {
     var data = {
       artist_name: this.refs.artist_name.value
     }
@@ -11,9 +9,7 @@ class InputArtistName extends React.Component {
     this.props.saveValues(data);
     this.props.nextStep();
   }
-  goBack(e) {
-    e.preventDefault();
-
+  goBack() {
     this.props.previousStep();
   }
   render() {
@@ -22,8 +18,8 @@ class InputArtistName extends React.Component {
         <label>What is the name of the Artist?</label>
         <input className="string required" type="text" ref="artist_name" defaultValue={this.props.songValues.artist_name}/>
 
-        <button className="button-standard" onClick={(e) => this.goBack(e)}>Back</button>
-        <button className="button-standard" onClick={(e) => this.saveAndContinue(e)}>Save and Continue</button>
+        <button className="button-standard" onClick={() => this.goBack()}>Back</button>
+        <button className="button-standard" onClick={() => this.saveAndContinue()}>Save and Continue</button>
       </div>
     )
   }

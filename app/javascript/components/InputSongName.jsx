@@ -1,9 +1,7 @@
 import React from 'react';
 
 class InputSongName extends React.Component {
-  saveAndContinue(e) {
-    e.preventDefault();
-
+  saveAndContinue() {
     var data = {
       song_name: this.refs.song_name.value
     }
@@ -17,7 +15,7 @@ class InputSongName extends React.Component {
       <div>
         <label>What is the name of the song?</label>
         <input className="string required" type="text" ref="song_name" defaultValue={this.props.songValues.song_name}/>
-        <button className="button-standard" onClick={(e) => this.saveAndContinue(e) }>Save and Continue</button>
+        <button className="button-standard" onClick={() => this.saveAndContinue() }>Save and Continue</button>
       </div>
     )
   }

@@ -1,9 +1,7 @@
 import React from 'react';
 
 class InputLyrics extends React.Component {
-  saveAndContinue(e) {
-    e.preventDefault();
-
+  saveAndContinue() {
     var data = {
       lyrics: this.refs.lyrics.value
     }
@@ -11,9 +9,7 @@ class InputLyrics extends React.Component {
     this.props.saveValues(data);
     this.props.nextStep();
   }
-  goBack(e) {
-    e.preventDefault();
-
+  goBack() {
     this.props.previousStep();
   }
   render() {
@@ -22,8 +18,8 @@ class InputLyrics extends React.Component {
         <label>What are the lyrics of the Song (in French)?</label>
         <input className="string required" type="text" ref="lyrics" defaultValue={this.props.songValues.lyrics}/>
 
-        <button className="button-standard" onClick={(e) => this.goBack(e)}>Back</button>
-        <button className="button-standard" onClick={(e) => this.saveAndContinue(e)}>Save and Continue</button>
+        <button className="button-standard" onClick={() => this.goBack()}>Back</button>
+        <button className="button-standard" onClick={() => this.saveAndContinue()}>Save and Continue</button>
       </div>
     )
   }
