@@ -77,7 +77,6 @@ body.songs {
 }
 
 body.songs.index {
-
   section.banner {
     color: white;
     .banner-title {
@@ -89,7 +88,6 @@ body.songs.index {
       }
     }
   }
-
   section.song-cards {
     .flex-container {
       display: flex;
@@ -106,6 +104,9 @@ body.songs.index {
           align-self: center;
         }
       }
+    }
+    .song-card-link {
+      text-decoration: none;
     }
     .song-card {
       background: white;
