@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/contact', to: 'application#contact', as: 'contact'
+  resources :contact_submissions, only: [:create]
+
   get '/donate', to: 'orders#new', as: 'new_order'
   get '/thankyou', to: 'orders#confirmation', as: 'orders_confirmation'
   get '/pay', to: 'orders#pay', as: 'pay_order'
