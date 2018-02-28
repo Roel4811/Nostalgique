@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 class AddSongOverview extends React.Component {
-  static contextTypes = {
-    router: PropTypes.object
-  }
-  constructor(props, context) {
-    super(props, context);
-  }
   submitSong() {
     $.ajax({
       url: '/songs.json',
@@ -20,12 +15,14 @@ class AddSongOverview extends React.Component {
         lyrics_english: this.props.songValues.lyrics_english
       } },
       success: (response) => {
-        console.log(this.context);
-        this.context.router.history.push("confirm");
+        const location = {
+          pathname: 'confirm',
+          songValues: this.props.songValues
+        }
+        this.props.history.push(location);
       },
       error: function(response) {
         console.log("fail");
-        // this.setState({ errors: response.errors })
       }
     });
   }
@@ -47,4 +44,4 @@ class AddSongOverview extends React.Component {
   }
 }
 
-export default AddSongOverview
+export default withRouter(AddSongOverview)
