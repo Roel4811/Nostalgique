@@ -124,6 +124,10 @@ body.songs.index {
         transform: translateY(-1px);
         box-shadow: 0 7px 14px rgba(255, 255, 255, 0.3), 0 3px 6px rgba(166, 166, 166, 0.08);
       }
+      .song-text {
+        height: 125px;
+        overflow: hidden;
+      }
       .song-image {
         img {
           width: 200px;
