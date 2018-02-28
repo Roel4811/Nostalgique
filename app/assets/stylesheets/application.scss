@@ -19,8 +19,41 @@
  @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
  @import url('https://fonts.googleapis.com/css?family=Russo+One');
 
- $font: 'Alegreya Sans', "Helvetica Neue", Helvetica, sans-serif;
+   @font-face {
+    font-family: 'GT Walsheim';
+    src:font-url('gt-walsheim-web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
 
+
+  @font-face {
+    font-family: 'GT Walsheim bold';
+    src:font-url('gt-walsheim-bold-web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'GT Walsheim medium';
+    src:font-url('gt-walsheim-medium-web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'GT Walsheim light';
+    src:font-url('gt-walsheim-light-web.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  $font: "GT Walsheim", "Helvetica Neue", Helvetica, sans-serif;
+  $font-light: "GT Walsheim light", "Helvetica Neue", Helvetica, sans-serif;
+  $font-medium: "GT Walsheim medium", "Helvetica Neue", Helvetica, sans-serif;
+  $font-bold: "GT Walsheim bold", "Helvetica Neue", Helvetica, sans-serif;
+
+ @import "contact";
  @import "shared/footer";
  @import "shared/navbar";
  @import "artists";
