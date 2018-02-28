@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
         </button>
       <% end %>
-      <%= link_to(root_path, class: "root-logo-link clean") do %>
+      <%= link_to(root_path, class: "root-logo-link") do %>
         <%= "Nostalgique" %>
       <% end %>
     </div>
@@ -17,24 +17,24 @@
       <% if !@no_nav_links %>
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <%= link_to "Songs", songs_path %>
+            <%= link_to "<span>Songs</span>".html_safe, songs_path %>
           </li>
           <li>
-            <%= link_to "Artists", artists_path %>
+            <%= link_to "<span>Artist</span>".html_safe, artists_path %>
           </li>
           <li>
-            <%= link_to "Add Song", step1_song_path %>
+            <%= link_to "<span>Add song</span>".html_safe, new_song_path %>
           </li>
           <li>
-            <%= link_to "Doneer", new_order_path, class: "pull-right" %>
+            <%#= link_to "Donate", new_order_path, class: "pull-right" %>
           </li>
           <% if current_member %>
             <li>
-              Signed in as <%= current_member.first_name %> | <%= link_to "Logout", log_out_members_path, method: :delete %>
+              Signed in as <%= current_member.first_name %>&nbsp;/&nbsp; <%= link_to "<span>Logout</span>".html_safe, log_out_members_path, method: :delete %>
             </li>
           <% else %>
             <li>
-              <%= link_to 'Login', log_in_members_path %> | <%= link_to 'Signup', '/signup' %>
+              <%= link_to "<span>Login</span>".html_safe, log_in_members_path %>&nbsp;/&nbsp;<%= link_to "<span>Signup</span>".html_safe, '/signup' %>
             </li>
           <% end %>
         </ul>
