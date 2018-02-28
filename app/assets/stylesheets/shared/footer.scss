@@ -9,5 +9,11 @@ section.footer {
     p {
       font-size: 1.3em;
     }
+    a {
+      color: white;
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
