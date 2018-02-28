@@ -66,7 +66,6 @@ class SongsController < ApplicationController
     song.lyrics_en = song_params[:lyrics_english]
 
     if song.save!
-      redirect_to root_path, notice: "You song is under review and will appear soon!"
     else
       redirect_to '/songs/new', alert: 'There was a problem when creating the song'
     end
