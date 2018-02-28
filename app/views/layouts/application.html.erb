@@ -12,8 +12,8 @@
     <%= render 'shared/navbar' %>
     <div id="main-content" class="main-content">
       <%= flash_msgs %>
-      <div id="app"></div>
       <%= yield %>
+      <div id="js-content"></div>
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_pack_tag 'index' %>
