@@ -1,6 +1,13 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 class AddSongOverview extends React.Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
+  constructor(props, context) {
+    super(props, context);
+  }
   submitSong() {
     $.ajax({
       url: '/songs.json',
@@ -13,7 +20,8 @@ class AddSongOverview extends React.Component {
         lyrics_english: this.props.songValues.lyrics_english
       } },
       success: (response) => {
-        console.log("success");
+        console.log(this.context);
+        this.context.router.history.push("confirm");
       },
       error: function(response) {
         console.log("fail");
@@ -33,7 +41,7 @@ class AddSongOverview extends React.Component {
         <p>{this.props.songValues.lyrics}</p>
         <p>{this.props.songValues.lyrics_english}</p>
         <button className="button-standard" onClick={() => this.goBack()}>Back</button>
-        <button className="button-standard" onClick={(e) => this.submitSong(e)}>Save song</button>
+        <button className="button-standard" onClick={() => this.submitSong()}>Save song</button>
       </div>
     )
   }
