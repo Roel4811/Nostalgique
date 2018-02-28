@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { render } from 'react-dom';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +8,7 @@ class AddSongConfirmation extends React.Component {
     return (
       <div>
         <h1>Thank you for contributing!</h1>
-        <p>The song {this.props.songValues.song_name} by {this.props.songValues.artist_name} will be reviewed and put on the website soon!</p>
+        <p>The song {this.props.location.songValues.song_name} by {this.props.location.songValues.artist_name} will be reviewed and put on the website soon!</p>
         <p>Do you want to receive an email when the song is available?</p>
         <label>
           <input type="checkbox"/>
