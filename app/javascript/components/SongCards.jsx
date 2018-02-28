@@ -1,23 +1,47 @@
 import React from 'react';
 import SongCard from '../components/SongCard';
-import { Link } from 'react-router-dom';
 
-const SongCards = () => {
-  const songs_node = document.getElementById('songs_data');
-  const songs = JSON.parse(songs_node.getAttribute('data'));
-  return (
-    <section className="song-cards">
-      <div className="container">
-        <div className="flex-container">
-          {songs.map((song) => {
-            return (
-              <SongCard song={song} key={song.id} />
-            )
-          })}
+class SongCards extends React.Component {
+  state = {
+    loading: false,
+    songs: []
+  }
+  // getData() {
+  //   const songs_node = document.getElementById('songs_data');
+  //   return JSON.parse(songs_node.getAttribute('data'));
+  // }
+  componentDidMount() {
+    this.setState({
+      loading: true
+    })
+    fetch('http://localhost:3000/api/v1/songs')
+      .then(res => res.json())
+      .then(songs => {
+        this.setState({
+          songs,
+          loading: false
+        })
+      })
+  }
+
+  render() {
+    const {loading, songs} = this.state
+    return (
+      <section className="song-cards">
+        <div className="container">
+          <div className="flex-container">
+            {
+              loading ? (
+                <h1>Loading...</h1>
+              ) : (
+                songs.map(song => <SongCard song={song} key={song.id} />)
+              )
+            }
+          </div>
         </div>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default SongCards
