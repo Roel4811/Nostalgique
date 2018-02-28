@@ -4,7 +4,7 @@ import InputSongName from '../components/InputSongName';
 import InputArtistName from '../components/InputArtistName';
 import InputLyrics from '../components/InputLyrics';
 import InputLyricsEnglish from '../components/InputLyricsEnglish';
-import AddSongOverview from '../components/AddSongConfirmation';
+import AddSongOverview from '../components/AddSongOverview';
 
 var songValues = {
   song_name: null,
@@ -70,8 +70,6 @@ class SongForm extends React.Component {
         return <AddSongOverview songValues={songValues}
                               saveValues={this.saveValues}
                               previousStep={this.previousStep} />
-      case 6:
-        return <AddSongConfirmation songValues={songValues} />
     }
   }
 
@@ -81,13 +79,19 @@ class SongForm extends React.Component {
     }
 
     return (
-      <div className="add-song-card">
-        <span className="progress-step">Step {this.state.step}</span>
-        <div className="progress">
-          <div className="progress-bar" style={style}></div>
+      <div className="container">
+        <div className="row">
+          <div className="col-xw-12 col-sm-6 col-sm-offset-3">
+            <div className="add-song-card">
+              <span className="progress-step">Step {this.state.step}</span>
+              <div className="progress">
+                <div className="progress-bar" style={style}></div>
+              </div>
+              <h2>Let's add a song!</h2>
+              {this.showStep()}
+            </div>
+          </div>
         </div>
-        <h2>Let's add a song!</h2>
-        {this.showStep()}
       </div>
     )
   }
