@@ -6,10 +6,6 @@ class SongCards extends React.Component {
     loading: false,
     songs: []
   }
-  // getData() {
-  //   const songs_node = document.getElementById('songs_data');
-  //   return JSON.parse(songs_node.getAttribute('data'));
-  // }
   componentDidMount() {
     this.setState({
       loading: true
