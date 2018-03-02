@@ -53,8 +53,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "better_errors"
   gem "binding_of_caller"
-  gem 'mina', require: false
-  gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
 end
 
 # added
@@ -77,6 +75,9 @@ gem "awesome_print", require: "ap"
 gem "figaro"
 gem 'font-awesome-sass'
 gem 'rspotify'
+gem 'mina', require: false
+gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
