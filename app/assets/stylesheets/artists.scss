@@ -3,3 +3,14 @@ body.artists {
     color: white;
   }
 }
+
+body.artists.index {
+  .artist-card {
+    h3 {
+      color: white;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+}
