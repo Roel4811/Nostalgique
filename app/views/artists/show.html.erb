@@ -1,0 +1,7 @@
+<div class="container">
+  <h2><%= @artist.name %></h2>
+  <hr></hr>
+  <% @songs.each do |song| %>
+      <h3><%= song.name %></h3>
+  <% end %>
+</div>
