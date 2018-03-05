@@ -11,11 +11,11 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
 set :application_name, 'Nostalgique'
-set :domain, 'foobar.com'
-set :deploy_to, '/var/www/foobar.com'
+set :domain, '159.65.197.69'
+set :deploy_to, '/opt/www/nostalgique.org'
 set :repository, 'git@github.com:Roel4811/Nostalgique.git'
 set :branch, 'master'
-set :user, 'root'
+set :user, 'deployer'
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
@@ -59,12 +59,12 @@ task :deploy do
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
 
-    on :launch do
-      in_path(fetch(:current_path)) do
-        command %{mkdir -p tmp/}
-        command %{touch tmp/restart.txt}
-      end
-    end
+    # on :launch do
+    #   in_path(fetch(:current_path)) do
+    #     command %{mkdir -p tmp/}
+    #     command %{touch tmp/restart.txt}
+    #   end
+    # end
   end
 
   # you can use `run :local` to run tasks on local machine before of after the deploy scripts
