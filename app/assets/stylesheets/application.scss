@@ -70,8 +70,9 @@ body {
     radial-gradient(
       circle at top right,
       rgba(186, 43, 38, 0.7),
-      rgba(57, 23, 106, 1) 50%),
+      rgba(57, 23, 106, 1) 60%),
       url('paris-background.jpg');
+      background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   input:focus {outline:0;}
