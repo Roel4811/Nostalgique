@@ -12,7 +12,7 @@ require 'mina/rbenv'  # for rbenv support. (https://rbenv.org)
 
 set :application_name, 'Nostalgique'
 set :domain, '159.65.197.69'
-set :deploy_to, '/opt/www/nostalgique.org'
+set :deploy_to, '/var/www/nostalgique.org'
 set :repository, 'git@github.com:Roel4811/Nostalgique.git'
 set :branch, 'master'
 set :user, 'deployer'
