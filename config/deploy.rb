@@ -15,7 +15,10 @@ set :domain, '159.65.197.69'
 set :deploy_to, '/var/www/nostalgique.org'
 set :repository, 'git@github.com:Roel4811/Nostalgique.git'
 set :branch, 'master'
+set :rails_env, 'production'
+
 set :user, 'deployer'
+set :forward_agent, true
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
