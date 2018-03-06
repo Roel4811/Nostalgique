@@ -18,7 +18,7 @@ set :branch, 'master'
 set :rails_env, 'production'
 
 set :user, 'deployer'
-set :forward_agent, true
+# set :forward_agent, true
 
 # Optional settings:
 #   set :user, 'foobar'          # Username in the server to SSH to.
