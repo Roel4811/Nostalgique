@@ -1,5 +1,5 @@
 # Change these
-server '159.65.197.69', port: 3000, roles: [:web, :app, :db], primary: true
+server '159.65.197.69', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:Roel4811/Nostalgique.git'
 set :application,     'nostalgique'
