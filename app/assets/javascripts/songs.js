@@ -1,8 +1,10 @@
-$(function(){
-  const navbar_links = document.querySelectorAll("ul.nav.navbar-nav li");
+"use strict";
 
-  navbar_links.forEach(link => {
-    link.addEventListener("click", (e) => {
+$(function () {
+  var navbar_links = document.querySelectorAll("ul.nav.navbar-nav li");
+
+  navbar_links.forEach(function (link) {
+    link.addEventListener("click", function (e) {
       removeActive(navbar_links);
       e.target.classList.add("active");
     });
@@ -10,7 +12,7 @@ $(function(){
 });
 
 function removeActive(links) {
-  links.forEach(link => {
+  links.forEach(function (link) {
     link.classList.remove("active");
   });
 }
