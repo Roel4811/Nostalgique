@@ -7,26 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Artist.create!(
-  name: "Jacques Brel"
-)
-
-10.times {
-  Song.create!(
-    name: "Vesoul",
-    artist_id: 1,
-    lyrics: "T'as voulu voir Vierzon
-      Et on a vu Vierzon
-      T'as voulu voir Vesoul
-      Et on a vu Vesoul
-      T'as voulu voir Honfleur
-      Et on a vu Honfleur
-      T'as voulu voir Hambourg
-      Et on a vu Hambourg
-      J'ai voulu voir Anvers
-      On a revu Hambourg
-      J'ai voulu voir ta sœur
-      Et on a vu ta mère
-      Comme toujours"
-    )
-}
+# Artist.create!(
+#   name: "Jacques Brel"
+# )
+#
+# 10.times {
+#   Song.create!(
+#     name: "Vesoul",
+#     artist_id: 1,
+#     lyrics: "T'as voulu voir Vierzon
+#       Et on a vu Vierzon
+#       T'as voulu voir Vesoul
+#       Et on a vu Vesoul
+#       T'as voulu voir Honfleur
+#       Et on a vu Honfleur
+#       T'as voulu voir Hambourg
+#       Et on a vu Hambourg
+#       J'ai voulu voir Anvers
+#       On a revu Hambourg
+#       J'ai voulu voir ta sœur
+#       Et on a vu ta mère
+#       Comme toujours"
+#     )
+# }
