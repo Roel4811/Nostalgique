@@ -84,4 +84,4 @@ end
 # kill -s SIGUSR2 pid   # Restart puma
 # kill -s SIGTERM pid   # Stop puma
 
-append :linked_files, "config/secrets.yml.key"
+# append :linked_files, "config/secrets.yml.key"
