@@ -34,7 +34,7 @@ class Admin::SongsController < Admin::ApplicationController
 
   def update
     artist = Artist.find_or_create_by(name: artist_params[:artist])
-    @song.artist = atist
+    @song.artist = artist
     if @song.update!(song_params)
       redirect_to admin_root_path
       flash[:notics] = "Song successfully updated!"
