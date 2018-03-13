@@ -1,4 +1,4 @@
-require 'Mollie/API/Client'
+# require 'Mollie/API/Client'
 
 class MollieCreateCustomerService
   attr_reader :shopping_basket
@@ -9,7 +9,7 @@ class MollieCreateCustomerService
 
   def call
     mollie = Mollie::API::Client.new(ENV['MOLLIE_API_KEY'])
-    
+
     customer = mollie.customers.create(name: shopping_basket.member.whole_name,
                                       email: shopping_basket.member.email)
 

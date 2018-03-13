@@ -1,4 +1,4 @@
-require 'Mollie/API/Client'
+# require 'Mollie/API/Client'
 
 class MollieCreatePaymentService
   attr_reader :shopping_basket, :confirmation_url
