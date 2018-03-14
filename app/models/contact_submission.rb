@@ -6,6 +6,6 @@ class ContactSubmission < ApplicationRecord
   after_create :send_contact_submission
 
   def send_contact_submission
-    ContactSubmissionMailer.send_contact_submission(self.id).deliver_now
+    ContactSubmissionMailer.send_contact_submission(self.id).deliver_later
   end
 end
