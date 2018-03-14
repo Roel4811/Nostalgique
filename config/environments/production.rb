@@ -107,13 +107,4 @@ Rails.application.configure do
     authentication:   :plain,
     enable_starttls_auto: true
   }
-  
-  # Exception Notification mailer setup
-  config.middleware.use ExceptionNotification::Rack,
-  ignore_crawlers: %w{Googlebot bingbot},
-  # ignore_exceptions: ['ActionController::InvalidAuthenticityToken'] + ExceptionNotifier.ignored_exceptions,
-  email: {
-    sender_address: ENV['EXCEPTION_SENDER'],
-    exception_recipients: ENV['EXCEPTION_RECIPIENTS']
-  }
 end
