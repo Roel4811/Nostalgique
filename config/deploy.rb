@@ -31,7 +31,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 # set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
-# set :linked_files, %w{config/secrets.yml.key}
+set :linked_files, %w{config/secrets.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
@@ -69,7 +69,7 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      invoke 'puma:restart'
+      invoke! 'puma:restart'
     end
   end
 
