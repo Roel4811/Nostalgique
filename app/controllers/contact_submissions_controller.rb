@@ -6,6 +6,7 @@ class ContactSubmissionsController < ApplicationController
     if contact_submission.save
       return
     else
+      flash[:error] = 'Something went wrong'
       render '/contact'
     end
   end
