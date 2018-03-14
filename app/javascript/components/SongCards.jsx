@@ -10,7 +10,7 @@ class SongCards extends React.Component {
     this.setState({
       loading: true
     })
-    fetch('http://localhost:3000/api/v1/songs')
+    fetch('/api/v1/songs.json')
       .then(res => res.json())
       .then(songs => {
         this.setState({

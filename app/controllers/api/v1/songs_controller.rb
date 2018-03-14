@@ -1,5 +1,5 @@
 class Api::V1::SongsController < Api::V1::BaseController
-
+  
   def index
     respond_with Song.without_deleted.only_active
   end
