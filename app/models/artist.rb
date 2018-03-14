@@ -1,6 +1,8 @@
 class Artist < ApplicationRecord
   has_many :songs
 
+  scope :with_active_songs, -> { joins(:songs).where(songs: { status: 'active'} ) }
+
   private
 
   def self.search(query)
