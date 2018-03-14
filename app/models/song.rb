@@ -9,7 +9,7 @@ class Song < ApplicationRecord
 
   scope :without_deleted, -> { where(songs: { deleted_at: nil }) }
   scope :only_deleted, -> { where.not(songs: { deleted_at: nil }) }
-  scope :only_active, -> { where(songs: {status: 'active' }) }
+  scope :only_active, -> { where(songs: { status: 'active' }) }
 
   def current_step
     @current_step || Wizard::Song::STEPS.first
