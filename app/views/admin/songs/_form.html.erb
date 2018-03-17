@@ -12,6 +12,7 @@
     <div class="input-fields group-image">
       <%= f.input :image_url %>
       <%= f.association :member, label_method: lambda { |member| "#{member.first_name}" } %>
+      <%= f.input :status, collection: Song.statuses, label_method: :first, value_method: :first, as: :radio_buttons  %>
     </div>
   </div>
   <div class="form-actions">
