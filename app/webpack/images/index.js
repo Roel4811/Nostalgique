@@ -1,0 +1,1 @@
+import './paris-background.jpg'
