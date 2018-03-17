@@ -30,14 +30,6 @@ Rails.application.routes.draw do
   get '/donate/register', to: 'orders#new'
   # get 'songs', to: 'songs#index', as: 'songs'
   resources :songs
-  resource :song do
-    get :step1
-    get :step2
-    get :step3
-    get :step4
-    get :step5
-    post :validate_step
-  end
   resources :artists
 
   get '/signup', to: 'members#new'
