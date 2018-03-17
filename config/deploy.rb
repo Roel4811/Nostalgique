@@ -77,7 +77,6 @@ namespace :deploy do
   # after 'deploy:updated', 'assets:precompile' # for compiling assets locally with rake task
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
 end
 
 # ps aux | grep puma    # Get puma pid
