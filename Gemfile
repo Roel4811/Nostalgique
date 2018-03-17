@@ -13,7 +13,7 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -68,7 +68,7 @@ end
 
 gem 'responders'
 gem 'mollie-api-ruby', '~> 2.2', '>= 2.2.1'
-gem 'bootstrap-sass', '~> 3.2.0'
+# gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -78,7 +78,6 @@ gem 'bcrypt'
 gem 'select2-rails'
 gem "awesome_print", require: "ap"
 gem "figaro"
-gem 'font-awesome-sass'
 gem 'rspotify'
 gem 'mina', require: false
 gem 'mina-puma', require: false,  github: 'untitledkingdom/mina-puma'
