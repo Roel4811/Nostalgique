@@ -4,8 +4,9 @@
     <title>Nostalgique</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="description" content="learn French by chanson">
+    <meta name="keywords" content="french, learn, chanson, song, english, study, language">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   </head>
 
@@ -17,6 +18,6 @@
       <div id="js-content"></div>
     </div>
     <%= render 'shared/footer' %>
-    <%= javascript_pack_tag 'index' %>
+    <%= javascript_pack_tag 'index', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
