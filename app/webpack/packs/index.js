@@ -3,12 +3,12 @@ import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Rails from 'rails-ujs';
-import Turbolinks from 'turbolinks';
+// import Turbolinks from 'turbolinks';
 import 'bootstrap/dist/js/bootstrap';
 import '../src/javascript/songs';
 
 Rails.start();
-Turbolinks.start();
+// Turbolinks.start();
 
 // import NotFound from '../components/NotFound';
 import SongCards from '../components/SongCards';
