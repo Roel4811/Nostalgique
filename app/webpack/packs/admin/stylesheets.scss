@@ -1,7 +1,7 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+@import '~bootstrap/scss/bootstrap';
+
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans');
 @import url('https://fonts.googleapis.com/css?family=Russo+One');
 
@@ -11,9 +11,14 @@ $lightblue: #f2f5f8;
 $grey: #a2a2a2cc;
 
 
-@import "artists";
-@import "songs";
-@import "buttons";
+// @import "../../src/stylesheet/shared/navbar";
+@import "../../src/stylesheet/admin/artists";
+@import "../../src/stylesheet/admin/songs";
+@import "../../src/stylesheet/admin/buttons";
+
+.font-bold {
+  font-weight: 800;
+}
 
 body {
   font-size: 10px;
@@ -31,49 +36,79 @@ body {
       outline: none;
   }
 }
-
 .bue {
   color: $default_blue;
 }
 
-.navbar-default {
+nav.navbar {
+  padding: 10px 70px;
   border: none;
   background: $default_blue;
   font-size: 1.7em;
-  margin-bottom: 0;
-  border-radius: 0;
-  .navbar-nav > li {
-    color: white;
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 1.7em;
+    a {
+      font-size: 20px;
+      color: white;
+      display: inline-block;
+      padding: 10px 20px;
+      transition: all 0.2 ease;
+    }
   }
-  .navbar-nav > li > a {
-    color: white;
-  }
-  ul.navbar-right {
-    margin-top: 8px;
-  }
-}
-.navbar-header {
-  display: flex;
   a.root-logo-link {
-    padding: 15px 0;
+    padding: 10px 0;
     font-size: 1.5em;
     color: white;
     font-family: 'Russo One', sans-serif;
+    &:hover {
+      color: lightgrey;
+      text-decoration: none;
+    }
+  }
+  .navbar-border {
+    border-bottom: 1px solid lightgrey;
+    padding: 25px 0;
+    margin: 0 0 25px 0;
   }
 }
 
+body.users.log_in {
+  .main-content {
+    background-color: #343643;
+  }
+}
 .admin-log-in {
+  margin-top: 50px;
+  padding: 70px 100px;
+  background-color: white;
+  box-shadow: 0 0 6px 0 #c7c7c7;
+  h1 {
+    font-size: 3.5em;
+  }
   form {
     .form-inputs {
       margin: 25px 0;
+      .input.email {
+        margin-bottom: 21px;
+      }
+    }
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 30px white inset;
     }
     input {
       border: none;
       border-bottom: 1px solid black;
+      font-size: 1.8em;
+      background-color: $lightblue;
     }
     label {
-      font-size: 1.7em;
+      font-size: 1.8em;
       display: block;
+      color: $default_blue;
+      margin-bottom: 0;
     }
   }
 }
