@@ -80,8 +80,8 @@ class SongForm extends React.Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col-xw-12 col-sm-6 col-sm-offset-3">
+        <div className="row justify-content-center">
+          <div className="col-md-auto">
             <div className="add-song-card">
               <span className="progress-step">Step {this.state.step}</span>
               <div className="progress">
