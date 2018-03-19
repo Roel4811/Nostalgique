@@ -4,8 +4,7 @@
     <title>Nostalgique</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'admin/stylesheets' %>
     <meta name="robots" content="noindex, nofollow">
   </head>
 
@@ -15,5 +14,6 @@
       <%= flash_msgs %>
       <%= yield %>
     </div>
+    <%= javascript_pack_tag 'admin/index' %>
   </body>
 </html>

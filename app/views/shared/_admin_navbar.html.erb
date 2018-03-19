@@ -1,44 +1,18 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <% if !@no_nav %>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      <% end %>
-      <%= link_to(root_path, class: "root-logo-link clean") do %>
-        <%= "Nostalgique" %>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <%= link_to("Nostalgique", root_path, class: "root-logo-link") %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <%= link_to "Members", admin_members_path %>
+      <%= link_to "Songs", admin_songs_path %>
+      <%= link_to "Artists", admin_artists_path %>
+      <% if current_user %>
+        <%= link_to "Logout #{current_user.name}", log_out_admin_users_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Login', log_in_admin_users_path %>
       <% end %>
     </div>
-    <div id="navbar" class="collapse navbar-collapse">
-      <% if !@no_nav_links %>
-        <ul class="nav navbar-nav navbar-right">
-          <li>
-            <%= link_to "Members", admin_members_path %>
-          </li>
-          <li>
-            <%= link_to "Songs", admin_songs_path %>
-          </li>
-          <li>
-            <%= link_to "Artists", admin_artists_path %>
-          </li>
-          <% if current_user %>
-            <li>
-              <%= link_to "Logout #{current_user.name}", log_out_admin_users_path, method: :delete %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to 'Login', log_in_admin_users_path %>
-            </li>
-          <% end %>
-        </ul>
-      <% else %>
-        <div class="navbar-nav-placeholder">
-        </div>
-      <% end %>
-    </div><!--/.nav-collapse -->
   </div>
 </nav>
