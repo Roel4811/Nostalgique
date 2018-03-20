@@ -9,7 +9,7 @@
       <%= link_to "<span>Artist</span>".html_safe, artists_path %>
       <%= link_to "<span>Add song</span>".html_safe, new_song_path %>
       <% if current_member %>
-          Signed in as <%= current_member.first_name %>&nbsp;/&nbsp; <%= link_to "<span>Logout</span>".html_safe, log_out_members_path, method: :delete %>
+          <p>Signed in as <%= current_member.first_name %>&nbsp;&nbsp;/</p> <%= link_to "<span>Logout</span>".html_safe, log_out_members_path, method: :delete %>
       <% else %>
           <%= link_to "<span>Login</span>&nbsp;/&nbsp;".html_safe, log_in_members_path %><%= link_to "<span>Signup</span>".html_safe, '/signup' %>
       <% end %>
