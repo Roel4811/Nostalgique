@@ -29,7 +29,9 @@ Rails.application.routes.draw do
   get '/pay', to: 'orders#pay', as: 'pay_order'
   get '/donate/register', to: 'orders#new'
   # get 'songs', to: 'songs#index', as: 'songs'
-  resources :songs
+  resources :songs do
+    get 'confirm', on: :collection
+  end
   resources :artists
 
   get '/signup', to: 'members#new'
