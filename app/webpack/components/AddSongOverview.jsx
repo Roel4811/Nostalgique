@@ -14,10 +14,11 @@ class AddSongOverview extends React.Component {
         lyrics: this.props.songValues.lyrics,
         lyrics_english: this.props.songValues.lyrics_english
       } },
-      success: (response) => {
+      success: (result) => {
         const location = {
           pathname: 'confirm',
-          songValues: this.props.songValues
+          songValues: this.props.songValues,
+          song_id: result
         }
         this.props.history.push(location);
       },
@@ -31,14 +32,24 @@ class AddSongOverview extends React.Component {
   }
   render() {
     return (
-      <div>
-        <h3>Check your song</h3>
-        <p>{this.props.songValues.song_name}</p>
-        <p>{this.props.songValues.artist_name}</p>
-        <p>{this.props.songValues.lyrics}</p>
-        <p>{this.props.songValues.lyrics_english}</p>
-        <button className="button-standard" onClick={() => this.goBack()}>Back</button>
-        <button className="button-standard" onClick={() => this.submitSong()}>Save song</button>
+      <div className="song-overview">
+        <div className="row">
+          <div className="col">
+            <p>{this.props.songValues.song_name} - {this.props.songValues.artist_name}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-6">
+            <p>{this.props.songValues.lyrics}</p>
+          </div>
+          <div className="col-6">
+            <p>{this.props.songValues.lyrics_english}</p>
+          </div>
+        </div>
+        <div className="navigation-buttons">
+          <button className="button-standard" onClick={() => this.goBack()}>Back</button>
+          <button className="button-standard right" onClick={() => this.submitSong()}>Save song</button>
+        </div>
       </div>
     )
   }

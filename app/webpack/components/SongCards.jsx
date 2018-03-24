@@ -17,6 +17,8 @@ class SongCards extends React.Component {
           songs,
           loading: false
         })
+      }).catch(function(error) {
+        console.log(error);
       })
   }
 

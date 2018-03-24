@@ -49,3 +49,17 @@ nav.navbar {
     margin: 0 0 25px 0;
   }
 }
+
+@media (max-width: 991px) {
+  nav.navbar {
+    .navbar-nav {
+      a {
+        padding: 13px 20px;
+      }
+      p {
+        padding: 13px 20px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
