@@ -19,8 +19,17 @@ class SongsController < ApplicationController
     song.lyrics_en = song_params[:lyrics_english]
 
     if song.save!
+      render json: song.id
     else
       redirect_to '/songs/new', alert: 'There was a problem when creating the song'
+    end
+  end
+
+  def update
+    song = Song.find(params[:id])
+    if song.update!(email_service_param)
+    else
+      redirect_to '/songs/new', alert: 'There was a problem with your last request'
     end
   end
 
@@ -32,6 +41,10 @@ class SongsController < ApplicationController
 
     def song_params
       params.require(:song).permit(:name, :artist_name, :lyrics, :lyrics_english)
+    end
+
+    def email_service_param
+      params.require(:song).permit(:email_service)
     end
 
 end
