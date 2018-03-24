@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180228190951) do
+ActiveRecord::Schema.define(version: 20180324213534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180228190951) do
     t.string "spotify_track_id"
     t.string "image_url"
     t.datetime "deleted_at"
+    t.boolean "email_service"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
     t.index ["member_id"], name: "index_songs_on_member_id"
   end
