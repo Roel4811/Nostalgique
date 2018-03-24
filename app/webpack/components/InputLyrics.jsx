@@ -1,6 +1,19 @@
 import React from 'react';
 
 class InputLyrics extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      value: ''
+    }
+  }
+
+  onChange(e) {
+    this.setState({
+      value: e.target.value
+    })
+  }
+
   saveAndContinue() {
     var data = {
       lyrics: this.refs.lyrics.value
@@ -16,10 +29,13 @@ class InputLyrics extends React.Component {
     return (
       <div>
         <label>What are the lyrics of the Song (in French)?</label>
-        <input className="string required" type="text" ref="lyrics" defaultValue={this.props.songValues.lyrics}/>
+        <textarea className="string required" type="text" cols="80" rows="20" ref="lyrics" onChange={(e) => this.onChange(e)} defaultValue={this.props.songValues.lyrics}>
+        </textarea>
 
-        <button className="button-standard" onClick={() => this.goBack()}>Back</button>
-        <button className="button-standard" onClick={() => this.saveAndContinue()}>Save and Continue</button>
+        <div className="navigation-buttons">
+          <button className="button-standard" onClick={() => this.goBack()}>Back</button>
+          <button className="button-standard right" disabled={!this.state.value} onClick={() => this.saveAndContinue()}>Save and Continue</button>
+        </div>
       </div>
     )
   }
